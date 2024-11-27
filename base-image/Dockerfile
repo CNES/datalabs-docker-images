@@ -194,6 +194,8 @@ ONBUILD RUN for script in $(find "resources" -type f -name "install.sh"); do \
         layer-cleanup.sh; \
     done
 
+ONBUILD USER ${NB_USER}
+
 # If a postBuild file exists, run it!
 # After it's done, we try to remove any possible cruft commands there
 # leave behind under $HOME - particularly stuff that jupyterlab extensions
