@@ -60,6 +60,7 @@ jobs:
       fail-fast: false
       matrix:
         IMAGE: [base-notebook, pangeo-notebook, pytorch-notebook]
+        IMAGE: [base-notebook, pangeo-notebook, pytorch-notebook]
     name: ${{ matrix.IMAGE }}
     runs-on: ubuntu-latest
     steps:
