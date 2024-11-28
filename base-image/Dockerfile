@@ -140,7 +140,7 @@ ONBUILD RUN echo "Checking for 'jupyter_notebook_config.py'..." \
         && cp jupyter_notebook_config.py /etc/jupyter \
         ; fi
 
-ONBUILD USER ${NB_USER}
+# ONBUILD USER ${NB_USER}
 
 # We want to keep our images as reproducible as possible. If a lock
 # file with exact versions of all required packages is present, we use
@@ -183,7 +183,6 @@ ONBUILD RUN echo "Checking for pip 'requirements.txt'..." \
         ; if test -f "requirements.txt" ; then \
         ${NB_PYTHON_PREFIX}/bin/pip install --no-cache -r requirements.txt \
         ; fi
-
 
 ONBUILD USER root
 
