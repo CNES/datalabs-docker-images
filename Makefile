@@ -26,11 +26,9 @@ pangeo-notebook : base-image
 	conda-lock lock --mamba -f environment.yml -f ../base-notebook/environment.yml -f ../base-notebook/environment.yml -p linux-64; \
 	conda-lock render -k explicit -p linux-64; \
 	../generate-packages-list.py conda-linux-64.lock > packages.txt; \
+	../merge-apt.sh ../base-notebook/apt.txt apt.txt; \
 	docker build -t cnes/pangeo-notebook:master . --progress=plain --platform linux/amd64; \
 	docker run -w $(TESTDIR) -v $(PWD):$(TESTDIR) cnes/pangeo-notebook:master ./run_tests.sh pangeo-notebook
-	../merge-apt.sh ../base-notebook/apt.txt apt.txt; \
-	docker build -t datalabs/pangeo-notebook:master . --progress=plain --platform linux/amd64; \
-	docker run -w $(TESTDIR) -v $(PWD):$(TESTDIR) datalabs/pangeo-notebook:master ./run_tests.sh pangeo-notebook
 
 .PHONY: pytorch-notebook
 pytorch-notebook : base-image
