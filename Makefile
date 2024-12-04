@@ -2,7 +2,7 @@
 
 # Makefile for convenience, (doesn't look for command outputs)
 .PHONY: all
-all: base-image base-notebook pangeo-notebook ml-notebook pytorch-notebook
+all: base-image base-notebook pangeo-notebook pytorch-notebook
 TESTDIR=/srv/test
 
 .PHONY: base-image
