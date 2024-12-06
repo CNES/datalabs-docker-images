@@ -1,25 +1,23 @@
 # Pangeo Docker Images
 
-[![Documentation build status](https://img.shields.io/readthedocs/pangeo-docker-images?logo=read-the-docs)](https://pangeo-docker-images.readthedocs.org/en/latest/)
-![Build Status](https://github.com/pangeo-data/pangeo-docker-images/workflows/Build/badge.svg)
-![Publish Status](https://github.com/pangeo-data/pangeo-docker-images/workflows/Publish/badge.svg)
-![DockerHub Version](https://img.shields.io/docker/v/pangeo/base-image?sort=date)
-**LINKS TO BE MODIFIED WHEN WE HAVE THE CI AND DOCUMENTATION**
+[![Documentation build status](https://img.shields.io/readthedocs/datalabs-docker-images?logo=read-the-docs)](https://datalabs-docker-images.readthedocs.io/en/latest/)
+![Build Status](https://github.com/cnes/datalabs-docker-images/workflows/Build/badge.svg)
+![Publish Status](https://github.com/cnes/datalabs-docker-images/workflows/Publish/badge.svg)
+![DockerHub Version](https://img.shields.io/docker/v/cnes/base-image?sort=date)
 
 The images defined in this repository capture reproducible computing environments used by [Pangeo Cloud](https://pangeo.io/cloud.html). They build on top of the Ubuntu operating system and include [conda environments](https://conda.io/projects/conda) with a curated set of Python packages for geospatial analysis. While initially intended for Pangeo Cloud, they can be used outside of Pangeo infrastructure too!
 
-More details can be found in [our documentation](https://our-future-documentation.com). **LINK TO BE MODIFIED WHEN WE HAVE OUR "READTHEDOCS" PAGE**
+More details can be found in [our documentation](https://datalabs-docker-images.readthedocs.io/en/latest/).
 
-Images are hosted on [Future Registry](https://future.registry.com) **LINK TO BE MODIFIED WHEN WE HAVE THE CONTAINER REGISTRY INFO**
+Images are hosted on [Dockerhub](https://hub.docker.com/u/cnes)
 
 | Image           | Description                                   |  Size | Pulls |
 |-----------------|-----------------------------------------------|--------------|-------------|
-| base-image      | Foundational Dockerfile for builds            | ![](https://img.shields.io/docker/image-size/pangeo/base-image?sort=date) | ![](https://img.shields.io/docker/pulls/pangeo/base-image?sort=date)
-| [base-notebook](base-notebook/packages.txt) | minimally functional image for pangeo hubs | ![](https://img.shields.io/docker/image-size/pangeo/base-notebook?sort=date) | ![](https://img.shields.io/docker/pulls/pangeo/base-notebook?sort=date)
-| [pangeo-notebook](pangeo-notebook/packages.txt) | base-notebook + core earth science analysis packages | ![](https://img.shields.io/docker/image-size/pangeo/pangeo-notebook?sort=date) | ![](https://img.shields.io/docker/pulls/pangeo/pangeo-notebook?sort=date)
-| [pytorch-notebook](pytorch-notebook/packages.txt) | pangeo-notebook + GPU-enabled pytorch | ![](https://img.shields.io/docker/image-size/pangeo/pytorch-notebook?sort=date) | ![](https://img.shields.io/docker/pulls/pangeo/pytorch-notebook?sort=date)
+| base-image      | Foundational Dockerfile for builds            | ![](https://img.shields.io/docker/image-size/cnes/base-image?sort=date) | ![](https://img.shields.io/docker/pulls/cnes/base-image?sort=date)
+| [base-notebook](base-notebook/packages.txt) | minimally functional image for pangeo hubs | ![](https://img.shields.io/docker/image-size/cnes/base-notebook?sort=date) | ![](https://img.shields.io/docker/pulls/cnes/base-notebook?sort=date)
+| [pangeo-notebook](pangeo-notebook/packages.txt) | base-notebook + core earth science analysis packages | ![](https://img.shields.io/docker/image-size/cnes/pangeo-notebook?sort=date) | ![](https://img.shields.io/docker/pulls/cnes/pangeo-notebook?sort=date)
+| [pytorch-notebook](pytorch-notebook/packages.txt) | pangeo-notebook + GPU-enabled pytorch | ![](https://img.shields.io/docker/image-size/cnes/pytorch-notebook?sort=date) | ![](https://img.shields.io/docker/pulls/cnes/pytorch-notebook?sort=date)
 
-**LINKS TO BE MODIFIED WHEN WE HAVE THE CONTAINER REGISTRY INFO**
 
 *Click on the image name in the table above for a current list of installed packages and versions*
 
@@ -28,12 +26,12 @@ graph TD;
     base-image-->base-notebook;
     base-notebook-->pangeo-notebook;
     pangeo-notebook-->pytorch-notebook;
-    click base-image "https://hub.docker.com/r/pangeo/base-image" "Open this in a new tab" _blank
-    click base-notebook "https://hub.docker.com/r/pangeo/base-notebook" "Open this in a new tab" _blank
-    click pangeo-notebook "https://hub.docker.com/r/pangeo/pangeo-notebook" "Open this in a new tab" _blank
-    click pytorch-notebook "https://hub.docker.com/r/pangeo/pytorch-notebook" "Open this in a new tab" _blank
+    click base-image "https://hub.docker.com/r/cnes/base-image" "Open this in a new tab" _blank
+    click base-notebook "https://hub.docker.com/r/cnes/base-notebook" "Open this in a new tab" _blank
+    click pangeo-notebook "https://hub.docker.com/r/cnes/pangeo-notebook" "Open this in a new tab" _blank
+    click pytorch-notebook "https://hub.docker.com/r/cnes/pytorch-notebook" "Open this in a new tab" _blank
 ```
-**LINKS TO BE MODIFIED WHEN WE HAVE THE CONTAINER REGISTRY INFO**
+
 ### Using the image with Singularity on HPC systems
 
 If you want to use this image on an HPC system (including a GPU system), we recommend using Singularity. Please see the [Singularity guide](Sing+GPU.md).

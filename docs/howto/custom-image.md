@@ -1,6 +1,6 @@
-# How to create a new VRE Project from `datalabs-pangeo-images`
+# How to create a new VRE Project from `datalabs-docker-images`
 
-You have two options for creating a new VRE project based on `datalabs-pangeo-images`: you can either **FORK** this project or use a **FROM** instruction in your `Dockerfile`
+You have two options for creating a new VRE project based on `datalabs-docker-images`: you can either **FORK** this project or use a **FROM** instruction in your `Dockerfile`
 
 ## How to choose
 
@@ -8,7 +8,7 @@ A **FORK** is ideal for projects aiming to customize the VRE with specific `apt`
 
 The `Dockerfile` **FROM** approach is ideal for projects wanting to receive VRE updates continuously. By simply updating the VRE Docker image tag, projects can immediately integrate the latest changes and enhancements.
 
-## Option 1 : Fork the VRE
+## Option 1 : Fork the Project
 
 ### Benefits of Forking
 
@@ -25,7 +25,7 @@ To select the most suitable image to modify for your needs, you need to review :
 This will help you identify the image with dependencies closest to your requirements.
 
 To facilitate upstream merging of the fork, rename any directories you don’t plan to use by adding a dot `(.)` before the folder name.
-*However, do not rename the folder if you intend to build the base image locally and not pull from \<INSERT CONTAINER REGISTRY NAME>.*
+*However, do not rename the folder if you intend to build the base image locally and not pull from [Dockerhub](https://hub.docker.com/r/cnes/base-image).*
 
 ### Steps to Fork the Project
 
@@ -51,6 +51,12 @@ Use the `make` command to build the image
 ```bash
 #Example with base-notebook
 make base-notebook
+```
+
+Then to run this image, run this command :
+
+```bash
+docker run -it --rm -p 8888:8888 cnes/base-notebook:master jupyter lab --ip 0.0.0.0 --allow-root --no-browser
 ```
 
 ### Syncing Your Fork with Upstream
@@ -81,7 +87,7 @@ git merge --continue
 If you prefer not to fork, you can create a custom Dockerfile by extending an existing image using the `FROM` instruction.
 #### Example Dockerfile
 ```docker
-FROM datalabs/base-notebook:<image-tag>
+FROM cnes/base-notebook:<image-tag>
 ```
 
 You can then add any specific packages, configurations, or scripts by modifying the Dockerfile as needed.
