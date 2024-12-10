@@ -53,5 +53,8 @@ rm /usr/share/applications/xfce4-session-logout.desktop
 apt purge --quiet --yes xfce4-screensaver
 # Remove lite client as the full client is the one being used in the Desktop Launcher
 rm /opt/noVNC/vnc_lite.html
+# Avoid creation of default folders
+sed -i 's/^#*/#/' /etc/xdg/user-dirs.defaults
+sed -i 's/enabled=True/enabled=False/' /etc/xdg/user-dirs.conf
 
 chmod 664 /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/*
