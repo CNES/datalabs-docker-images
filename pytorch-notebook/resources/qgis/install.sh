@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Libs
 # Fix qgis build error
