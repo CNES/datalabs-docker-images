@@ -14,7 +14,7 @@ The binder link above will launch Jupyterlab without any notebooks or other cont
 
 Below is a link to illustrate launching [`pangeo-notebook/2021.09.30`](https://github.com/cnes/datalabs-docker-images/blob/2021.09.30/pangeo-notebook/packages.txt) and automatically pulling the notebooks housed in https://github.com/pangeo-data/cog-best-practices.
 
-* https://mybinder.org/v2/gh/pangeo-data/pangeo-docker-images/2021.09.30?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fpangeo-data%252Fcog-best-practices%26urlpath%3Dlab%252Ftree%252Fcog-best-practices%252F%26branch%3Dmain
+* https://mybinder.org/v2/gh/cnes/datalabs-docker-images/2021.09.30?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fpangeo-data%252Fcog-best-practices%26urlpath%3Dlab%252Ftree%252Fcog-best-practices%252F%26branch%3Dmain
 
 ## How to launch Jupyterlab locally with one of these images
 
@@ -55,4 +55,4 @@ check out these docs for running containers on the cloud via Docker Compose:
 
 You can launch the pangeo-notebook environment via [GitHub Codespaces](https://github.com/features/codespaces) with this button:
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/pangeo-data/pangeo-docker-images?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/cnes/datalabs-docker-images?quickstart=1)
