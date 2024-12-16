@@ -189,6 +189,7 @@ ONBUILD USER root
 ONBUILD RUN  echo "Copy 'layer-cleanup'..." \
         ; [ -d binder ] && cd binder \
         ; [ -d .binder ] && cd .binder \
+        ; pwd; ls \
         ; cp resources/layer-cleanup.sh /usr/local/bin/ \
         ; chmod +x /usr/local/bin/layer-cleanup.sh
 
