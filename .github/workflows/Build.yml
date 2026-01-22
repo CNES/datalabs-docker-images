@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - use_common_module
     paths-ignore:
       - 'LICENSE'
       - 'README.md'
@@ -53,6 +54,11 @@ jobs:
         tags: |
           ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:master
           ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:${{env.DOCKER_TAG}}
+
+    - name: Check out common modules
+      uses: actions/checkout@master
+      with:
+        repository: CNES/datalabs-common-modules
 
   matrix-build:
     needs: base-image
