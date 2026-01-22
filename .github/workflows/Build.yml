@@ -55,11 +55,6 @@ jobs:
           ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:master
           ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:${{env.DOCKER_TAG}}
 
-    - name: Check out common modules
-      uses: actions/checkout@main
-      with:
-        repository: CNES/datalabs-common-modules
-
   matrix-build:
     needs: base-image
     strategy:
@@ -78,11 +73,19 @@ jobs:
         DOCKER_TAG=$SHA7
         echo "DOCKER_TAG=${DOCKER_TAG}" >> $GITHUB_ENV
 
+    - name: Check out common modules
+      uses: actions/checkout@main
+      with:
+        repository: CNES/datalabs-common-modules
+        path: ${{ matrix.IMAGE }}/datalabs-common-modules
+  
     - name: Copy common modules
       run: |
-        if [ -f modules.txt ]; then 
-          for module in `cat modules.txt`; do cp -r datalabs-common-modules/${module} resources/.; done
-        fi
+        cd ${{ matrix.IMAGE }}
+        # if [ -f modules.txt ]; then 
+        ls
+        for module in `cat modules.txt`; do echo $module; cp -r datalabs-common-modules/${module} resources/.; done
+        # fi
         rm -rf datalabs-common-modules
 
     # https://github.com/actions/runner-images/issues/2840#issuecomment-790492173
