@@ -56,7 +56,7 @@ jobs:
           ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:${{env.DOCKER_TAG}}
 
     - name: Check out common modules
-      uses: actions/checkout@master
+      uses: actions/checkout@main
       with:
         repository: CNES/datalabs-common-modules
 
@@ -77,6 +77,13 @@ jobs:
         SHA7="${GITHUB_SHA::7}"
         DOCKER_TAG=$SHA7
         echo "DOCKER_TAG=${DOCKER_TAG}" >> $GITHUB_ENV
+
+    - name: Copy common modules
+      run: |
+        if [ -f modules.txt ]; then 
+          for module in `cat modules.txt`; do cp -r datalabs-common-modules/${module} resources/.; done
+        fi
+        rm -rf datalabs-common-modules
 
     # https://github.com/actions/runner-images/issues/2840#issuecomment-790492173
     - name: Free up disk space
