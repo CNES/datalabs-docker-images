@@ -399,7 +399,7 @@ package:
   category: main
   optional: false
 - name: aiohttp
-  version: 3.13.3
+  version: 3.13.4
   manager: conda
   platform: linux-64
   dependencies:
@@ -414,10 +414,10 @@ package:
     python: '>=3.12,<3.13.0a0'
     python_abi: 3.12.*
     yarl: '>=1.17.0,<2.0'
-  url: https://conda.anaconda.org/conda-forge/linux-64/aiohttp-3.13.3-py312h5d8c7f2_0.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/aiohttp-3.13.4-py312h5d8c7f2_0.conda
   hash:
-    md5: 7ee12bbdb2e989618c080c7c611048db
-    sha256: ee6a1ac887fac367899278baab066c08b48a98ecdc3138bc497064c7d6ec5a17
+    md5: f8a69ceb1aae0a03da61cc4677c17cd9
+    sha256: 7711be6af1e764270a4578c95b98a470880605d88ca2f83d3e69594e13730c4e
   category: main
   optional: false
 - name: aiohttp
@@ -1484,15 +1484,15 @@ package:
   category: main
   optional: false
 - name: astropy-iers-data
-  version: 0.2026.3.23.0.51.38
+  version: 0.2026.3.30.0.54.34
   manager: conda
   platform: linux-64
   dependencies:
     python: '>=3.10'
-  url: https://conda.anaconda.org/conda-forge/noarch/astropy-iers-data-0.2026.3.23.0.51.38-pyhd8ed1ab_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/astropy-iers-data-0.2026.3.30.0.54.34-pyhd8ed1ab_0.conda
   hash:
-    md5: 195d1616431af1413e72a01793197de8
-    sha256: ce79f050a5e05298c6ba152d1496d102ba0a934b61bf0825678416f527fbad29
+    md5: ac53b633f44c2a9def963142fc8dc7c2
+    sha256: cd72918d13b29c2e15719ad73f7bfbd07392f6fedf783c18cf5bfe738259f7e7
   category: main
   optional: false
 - name: astropy-iers-data
@@ -10001,15 +10001,15 @@ package:
   category: main
   optional: false
 - name: fastcore
-  version: 1.12.31
+  version: 1.12.33
   manager: conda
   platform: linux-64
   dependencies:
     python: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/fastcore-1.12.31-pyhcf101f3_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/fastcore-1.12.33-pyhcf101f3_0.conda
   hash:
-    md5: 4baeb2558b9d9a0681ae5b64fd546633
-    sha256: befb7894988bb97cfd077d0949cf94cff26ded92953ec37f1e244f45b99fe9f5
+    md5: d2b404e42d6bdc676eb33cf9862b4318
+    sha256: e311b3acf465c78a74316ee7646ce4abff0673f10da7fa7fe9baca0a80e5606d
   category: main
   optional: false
 - name: fasteners
@@ -11512,15 +11512,15 @@ package:
   category: main
   optional: false
 - name: fsspec
-  version: 2026.2.0
+  version: 2026.3.0
   manager: conda
   platform: linux-64
   dependencies:
     python: '>=3.10'
-  url: https://conda.anaconda.org/conda-forge/noarch/fsspec-2026.2.0-pyhd8ed1ab_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/fsspec-2026.3.0-pyhd8ed1ab_0.conda
   hash:
-    md5: 496c6c9411a6284addf55c898d6ed8d7
-    sha256: 239b67edf1c5e5caed52cf36e9bed47cb21b37721779828c130e6b3fd9793c1b
+    md5: c18d2ba7577cdc618a20d45f1e31d14b
+    sha256: b4a7aec32167502dd4a2d1fb1208c63760828d7111339aa5b305b2d776afa70f
   category: main
   optional: false
 - name: fsspec
@@ -11689,10 +11689,10 @@ package:
     binutils_linux-64: ''
     gcc_impl_linux-64: 14.3.0.*
     sysroot_linux-64: ''
-  url: https://conda.anaconda.org/conda-forge/linux-64/gcc_linux-64-14.3.0-h298d278_21.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/gcc_linux-64-14.3.0-h298d278_22.conda
   hash:
-    md5: 1403ed5fe091bd7442e4e8a229d14030
-    sha256: 27ad0cd10dccffca74e20fb38c9f8643ff8fce56eee260bf89fa257d5ab0c90a
+    md5: 0b6cd616dab5e509c5c368d58a01982d
+    sha256: 676444fd28bde495e27d32999c6f2e4cb7f96cf05c2ce5e8bf4b37ef0b428dfb
   category: main
   optional: false
 - name: gcc_linux-aarch64
@@ -11772,23 +11772,20 @@ package:
   category: main
   optional: false
 - name: gcsfs
-  version: 2026.2.0
+  version: 0.7.2
   manager: conda
   platform: linux-64
   dependencies:
     aiohttp: ''
-    decorator: '>4.1.2'
-    fsspec: 2026.2.0
-    google-auth: '>=1.2'
+    fsspec: '>=0.8.0'
+    google-auth: ''
     google-auth-oauthlib: ''
-    google-cloud-storage: '>=3.9.0'
-    google-cloud-storage-control: ''
-    python: '>=3.10'
+    python: '>=3.6'
     requests: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/gcsfs-2026.2.0-pyhd8ed1ab_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/gcsfs-0.7.2-pyhd8ed1ab_0.tar.bz2
   hash:
-    md5: 7b2f6cee85093591aaabfbd87c9e52c2
-    sha256: 2acd9277d297bc64f32b72bea67f4c7b541390d74b6446a802a1bfa9a62b0f56
+    md5: 06b237687f879692dccd6a8c0360b32d
+    sha256: 09775600695ebd7f87cb6383ae039edb0fdef0499c46f684d44e004e9e5ea1a2
   category: main
   optional: false
 - name: gcsfs
@@ -13160,23 +13157,6 @@ package:
   category: main
   optional: false
 - name: google-api-core
-  version: 2.30.0
-  manager: conda
-  platform: linux-64
-  dependencies:
-    google-auth: '>=2.14.1,<3.0.0'
-    googleapis-common-protos: '>=1.56.3,<2.0.0'
-    proto-plus: '>=1.25.0,<2.0.0'
-    protobuf: '>=4.25.8,<7.0.0'
-    python: ''
-    requests: '>=2.20.0,<3.0.0'
-  url: https://conda.anaconda.org/conda-forge/noarch/google-api-core-2.30.0-pyhcf101f3_0.conda
-  hash:
-    md5: 7b98d992f037ebe87496162bd5885cf6
-    sha256: 23b93f620c3fd07d8ac6440b547e3e04e6ce1192c585620f6236ef9381515fd0
-  category: main
-  optional: false
-- name: google-api-core
   version: 2.20.0
   manager: conda
   platform: linux-aarch64
@@ -13307,7 +13287,7 @@ package:
   category: main
   optional: false
 - name: google-auth-oauthlib
-  version: 1.3.0
+  version: 1.3.1
   manager: conda
   platform: linux-64
   dependencies:
@@ -13315,10 +13295,10 @@ package:
     google-auth: '>=2.15.0,<3.0.0,!=2.43.0,!=2.44.0,!=2.45.0'
     python: '>=3.10'
     requests-oauthlib: '>=0.7.0'
-  url: https://conda.anaconda.org/conda-forge/noarch/google-auth-oauthlib-1.3.0-pyhd8ed1ab_1.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/google-auth-oauthlib-1.3.1-pyhd8ed1ab_0.conda
   hash:
-    md5: 33aec69cc30741c35f9616d694e3542c
-    sha256: f96c31e0add2c70f016e404551339160cc158d6713a73051d885edd78cf8a7e1
+    md5: b08838c276eb2377455c4e45dd1b1d68
+    sha256: 07cf7714a2decf46a82c3bd395733f9a211b2274f18fab9ecdfd5ae989115de9
   category: main
   optional: false
 - name: google-auth-oauthlib
@@ -13367,22 +13347,6 @@ package:
   category: main
   optional: false
 - name: google-cloud-core
-  version: 2.5.0
-  manager: conda
-  platform: linux-64
-  dependencies:
-    google-api-core: '>=1.31.6,<3.0.0,!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0'
-    google-auth: '>=1.25.0,<3.0.0'
-    grpcio: '>=1.38.0,<2.0.0'
-    grpcio-status: '>=1.38.0,<2.0.0'
-    python: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/google-cloud-core-2.5.0-pyhcf101f3_1.conda
-  hash:
-    md5: 48fcccc0b579087018df0afc332b8bd6
-    sha256: fcef1d51f6de304a23c19ea6b3114dcab9ce54482d9f506f9a3e0b48be514744
-  category: main
-  optional: false
-- name: google-cloud-core
   version: 2.4.1
   manager: conda
   platform: linux-aarch64
@@ -13425,25 +13389,6 @@ package:
   hash:
     md5: 1853cdebbfe25fb6ee253855a44945a6
     sha256: d01b787bad2ec4da9536ce2cedb3e53ed092fe6a4a596c043ab358bb9b2fbcdd
-  category: main
-  optional: false
-- name: google-cloud-storage
-  version: 3.10.1
-  manager: conda
-  platform: linux-64
-  dependencies:
-    google-api-core: '>=2.27.0,<3.0.0'
-    google-auth: '>=2.26.1,<3.0.0'
-    google-cloud-core: '>=2.4.2,<3.0.0'
-    google-crc32c: '>=1.1.3,<2.0.0'
-    google-resumable-media: '>=2.7.2,<3.0.0'
-    protobuf: '>=3.20.2,<7.0.0'
-    python: ''
-    requests: '>=2.22.0,<3.0.0'
-  url: https://conda.anaconda.org/conda-forge/noarch/google-cloud-storage-3.10.1-pyhcf101f3_0.conda
-  hash:
-    md5: 3a22fc850d3aa5b2521db0ec76b99dc9
-    sha256: a60cfd1ca765f1365276b83df220a7cf6c70da953ff6160a5759c2f520bacbd2
   category: main
   optional: false
 - name: google-cloud-storage
@@ -13501,24 +13446,6 @@ package:
   hash:
     md5: 75a712b2dad63711cbc1133232b469ae
     sha256: cfb493c7771a82ea57ad66a2e8589eee45c21480dafe0613012ef7834eb60f02
-  category: main
-  optional: false
-- name: google-cloud-storage-control
-  version: 1.10.0
-  manager: conda
-  platform: linux-64
-  dependencies:
-    google-api-core: '>=1.34.1,<3.0.0,!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.*,!=2.4.*,!=2.5.*,!=2.6.*,!=2.7.*,!=2.8.*,!=2.9.*,!=2.10.*'
-    google-auth: '>=2.14.1,<3.0.0,!=2.24.0,!=2.25.0'
-    grpc-google-iam-v1: '>=0.14.0,<1.0.0'
-    grpcio: '>=1.33.2,<2.0.0'
-    proto-plus: '>=1.22.3,<2.0.0'
-    protobuf: '>=3.20.2,<7.0.0,!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5'
-    python: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/google-cloud-storage-control-1.10.0-pyhcf101f3_0.conda
-  hash:
-    md5: 941c328972a5d6fd2248ab6b31076d15
-    sha256: 13c747e6c4a2352c9673a3127300205c80dfa33ce1826f3551851cca972b72d2
   category: main
   optional: false
 - name: google-crc32c
@@ -13589,19 +13516,6 @@ package:
   category: main
   optional: false
 - name: google-resumable-media
-  version: 2.8.0
-  manager: conda
-  platform: linux-64
-  dependencies:
-    google-crc32c: '>=1.0.0,<2.0.0'
-    python: '>=3.10'
-  url: https://conda.anaconda.org/conda-forge/noarch/google-resumable-media-2.8.0-pyhd8ed1ab_0.conda
-  hash:
-    md5: ba7f04ba62be69f9c9fef0c4487c210b
-    sha256: 23d825ed0664a8089c7958bffd819d26e1aba7579695c40dfbdb25a4864d8be6
-  category: main
-  optional: false
-- name: google-resumable-media
   version: 2.7.2
   manager: conda
   platform: linux-aarch64
@@ -13641,19 +13555,6 @@ package:
   category: main
   optional: false
 - name: googleapis-common-protos
-  version: 1.73.0
-  manager: conda
-  platform: linux-64
-  dependencies:
-    protobuf: '>=3.20.2,<7.0.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5'
-    python: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/googleapis-common-protos-1.73.0-pyhcf101f3_0.conda
-  hash:
-    md5: 07531f1f9bb98acde68747f69127ccc1
-    sha256: b228ef6e9a7aa4cbdff42df1ddc7ab305266268bbfaf2cf946a56da66818c7b7
-  category: main
-  optional: false
-- name: googleapis-common-protos
   version: 1.65.0
   manager: conda
   platform: linux-aarch64
@@ -13690,20 +13591,6 @@ package:
   hash:
     md5: f5bdd5dd4ad1fd075a6f25670bdda1b6
     sha256: 093e899196b6bedb761c707677a3bc7161a04371084eb26f489327e8aa8d6f25
-  category: main
-  optional: false
-- name: googleapis-common-protos-grpc
-  version: 1.73.0
-  manager: conda
-  platform: linux-64
-  dependencies:
-    googleapis-common-protos: '>=1.73,<1.74.0a0'
-    grpcio: '>=1.44.0,<2.0.0'
-    python: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/googleapis-common-protos-grpc-1.73.0-pyhcf101f3_0.conda
-  hash:
-    md5: 78840527c13aca3bf06c0572d1a7e718
-    sha256: 327ecb6fc8bbea7ffc5d795af2f113cd0a7bc5745bab80804df23630c9810a7d
   category: main
   optional: false
 - name: graphite2
@@ -13920,40 +13807,6 @@ package:
     sha256: 8afa00a2a27b27aec39d986df7a839af4093e44c54c607bffea8300057a87751
   category: main
   optional: false
-- name: grpc-google-iam-v1
-  version: 0.14.3
-  manager: conda
-  platform: linux-64
-  dependencies:
-    googleapis-common-protos: '>=1.56.0,<2.0.0'
-    googleapis-common-protos-grpc: ''
-    grpcio: '>=1.44.0,<2.0.0'
-    protobuf: '>=3.20.2,<7.0.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5'
-    python: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/grpc-google-iam-v1-0.14.3-pyhcf101f3_1.conda
-  hash:
-    md5: 2f307997162d8b75d4eb9d86c5c36fbe
-    sha256: 5649ec4fb9c0240806b4a080899ec5ce42b90692f01b111c88ac81a586773711
-  category: main
-  optional: false
-- name: grpcio
-  version: 1.73.1
-  manager: conda
-  platform: linux-64
-  dependencies:
-    __glibc: '>=2.17,<3.0.a0'
-    libgcc: '>=14'
-    libgrpc: 1.73.1
-    libstdcxx: '>=14'
-    libzlib: '>=1.3.1,<2.0a0'
-    python: '>=3.12,<3.13.0a0'
-    python_abi: 3.12.*
-  url: https://conda.anaconda.org/conda-forge/linux-64/grpcio-1.73.1-py312h6f3464c_1.conda
-  hash:
-    md5: dca50c100d8d67882ada32756810372f
-    sha256: 9b6ef222599d63ca23a9e292c35f454756e321cce52af9f5142303230f0c2762
-  category: main
-  optional: false
 - name: grpcio
   version: 1.62.2
   manager: conda
@@ -14002,21 +13855,6 @@ package:
   hash:
     md5: 86be79ee4588dc41964087fb161959de
     sha256: d64f56123fccc95542a5fce5c838cac2799d8e71fccaf211bd0ace08176f964a
-  category: main
-  optional: false
-- name: grpcio-status
-  version: 1.73.1
-  manager: conda
-  platform: linux-64
-  dependencies:
-    googleapis-common-protos: '>=1.5.5'
-    grpcio: '>=1.73.1'
-    protobuf: '>=6.30.0,<7.0.0'
-    python: '>=3.9'
-  url: https://conda.anaconda.org/conda-forge/noarch/grpcio-status-1.73.1-pyhd8ed1ab_0.conda
-  hash:
-    md5: 5a2944f868149ad5a2e6588be8eed838
-    sha256: 040fbfe95f62f633869fad6e2069a4b12af3b2236cae1d28c79648a00e93af7f
   category: main
   optional: false
 - name: gsl
@@ -14558,10 +14396,10 @@ package:
     numpy: '>=1.23,<3'
     python: '>=3.12,<3.13.0a0'
     python_abi: 3.12.*
-  url: https://conda.anaconda.org/conda-forge/linux-64/h5py-3.16.0-nompi_py312ha4f8f14_100.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/h5py-3.16.0-nompi_py312ha4f8f14_101.conda
   hash:
-    md5: 33fd97b513b9094dc91345a958bf6ede
-    sha256: dc76502fa3c069f4b411af61806f23fd0d4126b1f3c7bc4c3c87e90d65c8d42b
+    md5: 00cda48b891eb5189ec4ce1a469df0f6
+    sha256: ea129e82173ea5841bc6ecf898ed03505252a7c0912c632d09c1b5ccffea6ca0
   category: main
   optional: false
 - name: h5py
@@ -16683,7 +16521,7 @@ package:
   category: main
   optional: false
 - name: ipython
-  version: 9.11.0
+  version: 9.12.0
   manager: conda
   platform: linux-64
   dependencies:
@@ -16698,10 +16536,10 @@ package:
     python: ''
     stack_data: '>=0.6.0'
     traitlets: '>=5.13.0'
-  url: https://conda.anaconda.org/conda-forge/noarch/ipython-9.11.0-pyhecfbec7_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/ipython-9.12.0-pyhecfbec7_0.conda
   hash:
-    md5: 326c46b8ec2a1b4964927c7ea55ebf49
-    sha256: 1f90e346baab7926bc52d7b60c0625087e96b4fab1bdb9a7fe83ac842312c930
+    md5: b293210beb192c3024683bf6a998a0b8
+    sha256: 932044bd893f7adce6c9b384b96a72fd3804cc381e76789398c2fae900f21df7
   category: main
   optional: false
 - name: ipython
@@ -17452,15 +17290,15 @@ package:
   category: main
   optional: false
 - name: json5
-  version: 0.13.0
+  version: 0.14.0
   manager: conda
   platform: linux-64
   dependencies:
     python: '>=3.10'
-  url: https://conda.anaconda.org/conda-forge/noarch/json5-0.13.0-pyhd8ed1ab_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/json5-0.14.0-pyhd8ed1ab_0.conda
   hash:
-    md5: 8d5f66ebf832c4ce28d5c37a0e76605c
-    sha256: ba03ca5a6db38d9f48bd30172e8c512dea7a686a5c7701c6fcdb7b3023dae2ad
+    md5: 1269891272187518a0a75c286f7d0bbf
+    sha256: 9daa95bd164c8fa23b3ab196e906ef806141d749eddce2a08baa064f722d25fa
   category: main
   optional: false
 - name: json5
@@ -19531,7 +19369,7 @@ package:
   category: main
   optional: false
 - name: kerchunk
-  version: 0.2.9
+  version: 0.2.10
   manager: conda
   platform: linux-64
   dependencies:
@@ -19540,10 +19378,10 @@ package:
     python: '>=3.11'
     ujson: ''
     zarr: '>=3.0.1'
-  url: https://conda.anaconda.org/conda-forge/noarch/kerchunk-0.2.9-pyhd8ed1ab_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/kerchunk-0.2.10-pyhd8ed1ab_0.conda
   hash:
-    md5: 1ac32c617d6029d926c38775db939e0a
-    sha256: c398236e08ba439835b87ba6f667a40071eeefbe87a266a8b553329213aa48f5
+    md5: 942b809ecbdbeb225e2e22592521f8e8
+    sha256: 9d8ed042bfde99c5c2c6c859fd0c9bce4137d42ea2033ce68aabd9c66564fbff
   category: main
   optional: false
 - name: kerchunk
@@ -21837,16 +21675,16 @@ package:
   category: main
   optional: false
 - name: libexpat
-  version: 2.7.4
+  version: 2.7.5
   manager: conda
   platform: linux-64
   dependencies:
     __glibc: '>=2.17,<3.0.a0'
     libgcc: '>=14'
-  url: https://conda.anaconda.org/conda-forge/linux-64/libexpat-2.7.4-hecca717_0.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/libexpat-2.7.5-hecca717_0.conda
   hash:
-    md5: e7f7ce06ec24cfcfb9e36d28cf82ba57
-    sha256: d78f1d3bea8c031d2f032b760f36676d87929b18146351c4464c66b0869df3f5
+    md5: 49f570f3bc4c874a06ea69b7225753af
+    sha256: e8c2b57f6aacabdf2f1b0924bd4831ce5071ba080baa4a9e8c0d720588b6794c
   category: main
   optional: false
 - name: libexpat
@@ -32311,23 +32149,23 @@ package:
   category: main
   optional: false
 - name: pandas
-  version: 2.3.3
+  version: 2.2.3
   manager: conda
   platform: linux-64
   dependencies:
     __glibc: '>=2.17,<3.0.a0'
-    libgcc: '>=14'
-    libstdcxx: '>=14'
-    numpy: '>=1.23,<3'
+    libgcc: '>=13'
+    libstdcxx: '>=13'
+    numpy: '>=1.22.4'
     python: '>=3.12,<3.13.0a0'
-    python-dateutil: '>=2.8.2'
-    python-tzdata: '>=2022.7'
+    python-dateutil: '>=2.8.1'
+    python-tzdata: '>=2022a'
     python_abi: 3.12.*
-    pytz: '>=2020.1'
-  url: https://conda.anaconda.org/conda-forge/linux-64/pandas-2.3.3-py312hf79963d_1.conda
+    pytz: '>=2020.1,<2024.2'
+  url: https://conda.anaconda.org/conda-forge/linux-64/pandas-2.2.3-py312hf9745cd_1.conda
   hash:
-    md5: e597b3e812d9613f659b7d87ad252d18
-    sha256: f633d5f9b28e4a8f66a6ec9c89ef1b6743b880b0511330184b4ab9b7e2dda247
+    md5: 8bce4f6caaf8c5448c7ac86d87e26b4b
+    sha256: ad275a83bfebfa8a8fee9b0569aaf6f513ada6a246b2f5d5b85903d8ca61887e
   category: main
   optional: false
 - name: pandas
@@ -34672,19 +34510,6 @@ package:
   category: main
   optional: false
 - name: proto-plus
-  version: 1.27.1
-  manager: conda
-  platform: linux-64
-  dependencies:
-    protobuf: '>=3.19.0,<7.0.0'
-    python: '>=3.10'
-  url: https://conda.anaconda.org/conda-forge/noarch/proto-plus-1.27.1-pyhd8ed1ab_0.conda
-  hash:
-    md5: c9b8e02d974817913ab94dae12c7340b
-    sha256: 0d91d1687ed442f9b8ffd6792cf3127529a088e020fac7915e0c40cc23be3037
-  category: main
-  optional: false
-- name: proto-plus
   version: 1.23.0
   manager: conda
   platform: linux-aarch64
@@ -34721,24 +34546,6 @@ package:
   hash:
     md5: 26c043ffe1c027eaed894d70ea04a18d
     sha256: 2c9ca8233672032fb372792b1e4c2a556205e631dc375c2c606eab478f32349d
-  category: main
-  optional: false
-- name: protobuf
-  version: 6.31.1
-  manager: conda
-  platform: linux-64
-  dependencies:
-    __glibc: '>=2.17,<3.0.a0'
-    libabseil: '>=20250512.1,<20250513.0a0'
-    libgcc: '>=14'
-    libstdcxx: '>=14'
-    libzlib: '>=1.3.1,<2.0a0'
-    python: '>=3.12,<3.13.0a0'
-    python_abi: 3.12.*
-  url: https://conda.anaconda.org/conda-forge/linux-64/protobuf-6.31.1-py312hb8af0ac_2.conda
-  hash:
-    md5: 2aaf8d6c729beb30d1b41964e7fb2cd6
-    sha256: 9c1dffa6371b5ae5a7659f08fa075a1a9d7b32fd11d5eaa1e7192eba4cae1207
   category: main
   optional: false
 - name: protobuf
@@ -36053,15 +35860,15 @@ package:
   category: main
   optional: false
 - name: pygments
-  version: 2.19.2
+  version: 2.20.0
   manager: conda
   platform: linux-64
   dependencies:
-    python: '>=3.9'
-  url: https://conda.anaconda.org/conda-forge/noarch/pygments-2.19.2-pyhd8ed1ab_0.conda
+    python: '>=3.10'
+  url: https://conda.anaconda.org/conda-forge/noarch/pygments-2.20.0-pyhd8ed1ab_0.conda
   hash:
-    md5: 6b6ece66ebcae2d5f326c77ef2c5a066
-    sha256: 5577623b9f6685ece2697c6eb7511b4c9ac5fb607c9babc2646c811b428fd46a
+    md5: 16c18772b340887160c79a6acc022db0
+    sha256: cf70b2f5ad9ae472b71235e5c8a736c9316df3705746de419b59d442e8348e86
   category: main
   optional: false
 - name: pygments
@@ -36101,26 +35908,28 @@ package:
   category: main
   optional: false
 - name: pygobject
-  version: 3.54.5
+  version: 3.56.2
   manager: conda
   platform: linux-64
   dependencies:
     __glibc: '>=2.17,<3.0.a0'
     cairo: '>=1.18.4,<2.0a0'
-    libexpat: '>=2.7.3,<3.0a0'
+    libexpat: '>=2.7.5,<3.0a0'
     libffi: '>=3.5.2,<3.6.0a0'
+    libfreetype: '>=2.14.3'
+    libfreetype6: '>=2.14.3'
     libgcc: '>=14'
     libgirepository: ''
-    libglib: '>=2.86.3,<3.0a0'
+    libglib: '>=2.86.4,<3.0a0'
     libiconv: ''
-    libzlib: '>=1.3.1,<2.0a0'
+    libzlib: '>=1.3.2,<2.0a0'
     pycairo: ''
     python: '>=3.12,<3.13.0a0'
     python_abi: 3.12.*
-  url: https://conda.anaconda.org/conda-forge/linux-64/pygobject-3.54.5-py312hd86a0b5_3.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/pygobject-3.56.2-py312hd86a0b5_0.conda
   hash:
-    md5: c5ba531f0c2460ba528d7cebe7b1d38e
-    sha256: 53880ee409c6b2b73ecf707bb2dc7bb83831ebe264b88d39b888082726f79b89
+    md5: a9b0813c67ca8c3cbb75e534559a3fb5
+    sha256: d798bff615222f646affe10346e383af4aae136bda51abee7299fc1117ea2e16
   category: main
   optional: false
 - name: pygobject
@@ -37740,7 +37549,7 @@ package:
   category: main
   optional: false
 - name: python-fasthtml
-  version: 0.13.0
+  version: 0.13.2
   manager: conda
   platform: linux-64
   dependencies:
@@ -37755,10 +37564,10 @@ package:
     python-multipart: ''
     starlette: '>=1.0,<2.dev0'
     uvicorn: '>=0.30'
-  url: https://conda.anaconda.org/conda-forge/noarch/python-fasthtml-0.13.0-pyhc364b38_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/python-fasthtml-0.13.2-pyhc364b38_0.conda
   hash:
-    md5: 85f826be58619e516d22d17ef0e9b971
-    sha256: f541e2c943dfaeb54102acd068ead7e6c14163f3773dcd89ea2427aef49fd976
+    md5: 49955d56f66a560b5e1534040562d64f
+    sha256: b9a29b4cec3785483f9d78f9b8d10c66012cb962b548f7bf314b43115a245ca1
   category: main
   optional: false
 - name: python-fastjsonschema
@@ -38581,15 +38390,15 @@ package:
   category: main
   optional: false
 - name: pytz
-  version: 2026.1.post1
+  version: '2024.1'
   manager: conda
   platform: linux-64
   dependencies:
-    python: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/pytz-2026.1.post1-pyhcf101f3_0.conda
+    python: '>=3.7'
+  url: https://conda.anaconda.org/conda-forge/noarch/pytz-2024.1-pyhd8ed1ab_0.conda
   hash:
-    md5: f8a489f43a1342219a3a4d69cecc6b25
-    sha256: d35c15c861d5635db1ba847a2e0e7de4c01994999602db1f82e41b5935a9578a
+    md5: 3eeeeb9e4827ace8c0c1419c85d590ad
+    sha256: 1a7d6b233f7e6e3bbcbad054c8fd51e690a67b129a899a056a5e45dd9f00cb41
   category: main
   optional: false
 - name: pytz
@@ -39629,7 +39438,7 @@ package:
   category: main
   optional: false
 - name: requests
-  version: 2.33.0
+  version: 2.33.1
   manager: conda
   platform: linux-64
   dependencies:
@@ -39638,10 +39447,10 @@ package:
     idna: '>=2.5,<4'
     python: ''
     urllib3: '>=1.26,<3'
-  url: https://conda.anaconda.org/conda-forge/noarch/requests-2.33.0-pyhcf101f3_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/requests-2.33.1-pyhcf101f3_0.conda
   hash:
-    md5: bee5ed456361bfe8af502beaf5db82e2
-    sha256: fbc7183778e1f9976ae7d812986c227f9d43f841326ac03b5f43f1ac93fa8f3b
+    md5: 10afbb4dbf06ff959ad25a92ccee6e59
+    sha256: c0249bc4bf4c0e8e06d0e7b4d117a5d593cc4ab2144d5006d6d47c83cb0af18e
   category: main
   optional: false
 - name: requests
@@ -39971,7 +39780,7 @@ package:
   category: main
   optional: false
 - name: rio-cogeo
-  version: 7.0.0
+  version: 7.0.2
   manager: conda
   platform: linux-64
   dependencies:
@@ -39980,10 +39789,10 @@ package:
     pydantic: '>=2.0,<3.dev0'
     python: '>=3.11'
     rasterio: '>=1.3.3'
-  url: https://conda.anaconda.org/conda-forge/noarch/rio-cogeo-7.0.0-pyhd8ed1ab_0.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/rio-cogeo-7.0.2-pyhd8ed1ab_0.conda
   hash:
-    md5: 8bc1cecd2ec0ab577fd21f156c540c3c
-    sha256: 9407a83fe27bc5b434c537e4027b444c06c785f9509a1e83158379199fc83cf5
+    md5: 0e48d784796728f7d9eef58b930a32d0
+    sha256: 9bb89251a492c89be5e44f7b4e908f435d69a53498617a1034b3fba963e28c4b
   category: main
   optional: false
 - name: rio-cogeo
@@ -40411,17 +40220,17 @@ package:
   category: main
   optional: false
 - name: ruff
-  version: 0.15.7
+  version: 0.15.8
   manager: conda
   platform: linux-64
   dependencies:
     __glibc: '>=2.17,<3.0.a0'
     libgcc: '>=14'
     python: ''
-  url: https://conda.anaconda.org/conda-forge/linux-64/ruff-0.15.7-h7805a7d_1.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/ruff-0.15.8-h7805a7d_0.conda
   hash:
-    md5: f5678c1a929d9efe3c2397675ae90a3c
-    sha256: 2985cfff61368323db477c2a0d7f100a57f6cb34aafec51ae96b6fc409d9090f
+    md5: 67bed7148b00f10bd30766cb58fb8f6f
+    sha256: c4778a348a99b781585f8ef47f134a5ebfe205f9f403ecd601fc602efa7e54ce
   category: main
   optional: false
 - name: ruff
@@ -40497,18 +40306,18 @@ package:
   category: main
   optional: false
 - name: s3fs
-  version: 2026.2.0
+  version: 2026.3.0
   manager: conda
   platform: linux-64
   dependencies:
     aiobotocore: '>=2.19.0,<4.0.0'
     aiohttp: ''
-    fsspec: 2026.2.0
+    fsspec: 2026.3.0
     python: '>=3.10'
-  url: https://conda.anaconda.org/conda-forge/noarch/s3fs-2026.2.0-pyhd8ed1ab_1.conda
+  url: https://conda.anaconda.org/conda-forge/noarch/s3fs-2026.3.0-pyhd8ed1ab_0.conda
   hash:
-    md5: 37ed22783f5ed33dddbfc67227593075
-    sha256: 5a39524571d6e2b2bfabdbeaa75231c6d25042cbfa35062fad785d51656e2489
+    md5: b15d41b1c4c56f09673bbefee39934f3
+    sha256: 887887cfd8f5549dba20f04e4d61e0665eb8657dd70b6616f9affb8959c1ea4d
   category: main
   optional: false
 - name: s3fs
@@ -43164,7 +42973,7 @@ package:
   category: main
   optional: false
 - name: timezonefinder
-  version: 8.2.1
+  version: 8.2.2
   manager: conda
   platform: linux-64
   dependencies:
@@ -43176,10 +42985,10 @@ package:
     python: ''
     python-flatbuffers: '>=25.2.10'
     python_abi: 3.12.*
-  url: https://conda.anaconda.org/conda-forge/linux-64/timezonefinder-8.2.1-py312h53c857e_0.conda
+  url: https://conda.anaconda.org/conda-forge/linux-64/timezonefinder-8.2.2-py312h5253ce2_0.conda
   hash:
-    md5: 8848eb62aa43089dbd961d414f42a159
-    sha256: 8a3f1365e07abcafcf1dda972d682c692991fee8f059e399a844de984aa1e509
+    md5: 3a1ab2ffc1fc7fcdc1b98506713fbeca
+    sha256: 9f1f6d4f449ad513217fb5e34eedc7fb53472b73eb6bd86186e22d28823cb351
   category: main
   optional: false
 - name: timezonefinder
@@ -45668,20 +45477,22 @@ package:
   category: main
   optional: false
 - name: xarray-spatial
-  version: 0.9.2
+  version: 0.9.3
   manager: conda
   platform: linux-64
   dependencies:
     datashader: '>=0.15.0'
+    matplotlib-base: ''
     numba: ''
     numpy: ''
     python: '>=3.12'
     scipy: ''
     xarray: ''
-  url: https://conda.anaconda.org/conda-forge/noarch/xarray-spatial-0.9.2-pyhd8ed1ab_0.conda
+    zstandard: ''
+  url: https://conda.anaconda.org/conda-forge/noarch/xarray-spatial-0.9.3-pyhd8ed1ab_0.conda
   hash:
-    md5: 75f796099dfa135ce4ee13f272198163
-    sha256: 5478472f4ddd68e5a437ce31e25b68e5eaf5cb1333f28225d282485534d3d957
+    md5: cbe0568770f615b9512b0caaa374de3e
+    sha256: 0f8b80b337d9caf728ef2aec6d589080a10df983023333c3dd96438f176fd209
   category: main
   optional: false
 - name: xarray-spatial
@@ -47485,15 +47296,15 @@ package:
   category: main
   optional: false
 - name: xyzservices
-  version: 2025.11.0
+  version: 2026.3.0
   manager: conda
   platform: linux-64
   dependencies:
-    python: '>=3.8'
-  url: https://conda.anaconda.org/conda-forge/noarch/xyzservices-2025.11.0-pyhd8ed1ab_0.conda
+    python: '>=3.9'
+  url: https://conda.anaconda.org/conda-forge/noarch/xyzservices-2026.3.0-pyhd8ed1ab_0.conda
   hash:
-    md5: 16933322051fa260285f1a44aae91dd6
-    sha256: b194a1fbc38f29c563b102ece9d006f7a165bf9074cdfe50563d3bce8cae9f84
+    md5: 4487b9c371d0161d54b5c7bbd890c0fc
+    sha256: 663ea9b00d68c2da309114923924686ab6d3f59ef1b196c5029ba16799e7bb07
   category: main
   optional: false
 - name: xyzservices
@@ -48198,6 +48009,23 @@ package:
   hash:
     md5: 652e10e21567dbd1dd6662faf85e3220
     sha256: 5fb88d017d9e35f7c155db180824f265b92538ce8d95fc58d1ec983698e2c52b
+  category: main
+  optional: false
+- name: zstandard
+  version: 0.25.0
+  manager: conda
+  platform: linux-64
+  dependencies:
+    __glibc: '>=2.17,<3.0.a0'
+    cffi: '>=1.11'
+    libgcc: '>=14'
+    python: ''
+    python_abi: 3.12.*
+    zstd: '>=1.5.7,<1.6.0a0'
+  url: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.25.0-py312h5253ce2_1.conda
+  hash:
+    md5: 02738ff9855946075cbd1b5274399a41
+    sha256: c2bcb8aa930d6ea3c9c7a64fc4fab58ad7bcac483a9a45de294f67d2f447f413
   category: main
   optional: false
 - name: zstd
