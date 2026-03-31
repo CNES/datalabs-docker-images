@@ -4,3 +4,5 @@
 # Refer to the base-image/Dockerfile for documentation.
 ARG PANGEO_BASE_IMAGE_TAG=master
 FROM cnes/base-image:${PANGEO_BASE_IMAGE_TAG}
+
+USER root

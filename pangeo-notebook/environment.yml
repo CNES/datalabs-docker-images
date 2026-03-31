@@ -10,6 +10,8 @@ dependencies:
  - black
  - boto3
  - bottleneck
+#  - bulldozer-dtm
+#  - cars
  - cartopy
  - cdsapi
  - cfgrib
@@ -36,11 +38,11 @@ dependencies:
  - gcsfs
  - gh
  - gh-scoped-creds
- - geocube
+ - geocube #==0.7.1
  - geopandas
  - geopy
  - geoviews-core
-#  - geowombat
+#  - georastertools
  - git-lfs
  - gsw
  - h5netcdf
@@ -83,12 +85,11 @@ dependencies:
  - numpy_groupies
  - odc-stac
  - openeo
-#  - otb
  - pandas
  - panel
  - parcels
  - param
- - pixcdust
+#  - pixcdust
  - planetary-computer
  - pop-tools
  - pyarrow
