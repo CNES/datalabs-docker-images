@@ -12,11 +12,8 @@ env:
 
 jobs:
   matrix-build:
-    strategy:
-      fail-fast: false
-      matrix:
-        IMAGE: [geodes-notebook]
-    name: ${{ matrix.IMAGE }}
+    env:
+      IMAGE: vregeodes
     runs-on: ubuntu-latest
     steps:
     - name: Set Job Environment Variables
@@ -42,12 +39,12 @@ jobs:
 
     - name: Create New DockerHub Tags
       run: |
-        docker buildx imagetools create ${DOCKER_ORG}/${{ matrix.IMAGE }}:master \
-          -t ${DOCKER_ORG}/${{ matrix.IMAGE }}:latest \
-          -t ${DOCKER_ORG}/${{ matrix.IMAGE }}:${TAG}
+        docker buildx imagetools create ${DOCKER_ORG}/${{ env.IMAGE }}:master \
+          -t ${DOCKER_ORG}/${{ env.IMAGE }}:latest \
+          -t ${DOCKER_ORG}/${{ env.IMAGE }}:${TAG}
 
     # - name: Create New Quay.io Tags
     #   run: |
-    #     docker buildx imagetools create quay.io/${DOCKER_ORG}/${{ matrix.IMAGE }}:master \
-    #       -t quay.io/${DOCKER_ORG}/${{ matrix.IMAGE }}:latest \
-    #       -t quay.io/${DOCKER_ORG}/${{ matrix.IMAGE }}:${TAG}
+    #     docker buildx imagetools create quay.io/${DOCKER_ORG}/${{ env.IMAGE }}:master \
+    #       -t quay.io/${DOCKER_ORG}/${{ env.IMAGE }}:latest \
+    #       -t quay.io/${DOCKER_ORG}/${{ env.IMAGE }}:${TAG}

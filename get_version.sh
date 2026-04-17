@@ -10,7 +10,7 @@ for crt_tag in $(git tag | tail -r)
 do
   echo $crt_tag
   git checkout $crt_tag --quiet
-  grep $LIBRARY geodes-notebook/packages.txt
+  grep $LIBRARY pangeo-notebook/packages.txt
   echo "--"
 done
 

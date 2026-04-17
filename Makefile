@@ -1,40 +1,29 @@
 # Makefile for convenience, (doesn't look for command outputs)
 .PHONY: all
-all: base-image base-notebook geodes-notebook pytorch-notebook
-TESTDIR=/srv/test
+all: vregeodes
 
-.PHONY: base-image
-base-image :
-	cd base-image ; \
-	docker build -t cnes/base-image:master --progress=plain --platform linux/amd64 .
+# Setting environment variables from .env file
+# "-" == "if exists" , do not forget to copy .env.template to .env
+-include .env
 
-.PHONY: base-notebook
-base-notebook : base-image
-	cd base-notebook ; \
-	conda-lock lock --mamba -f environment.yml -p linux-64; \
+.PHONY: vregeodes
+vregeodes : conda-lock apt docker
+
+conda-lock:
+	cd vregeodes ; \
+	conda-lock lock -f environment.yml -f ../.base_layer/base-notebook-environment.yml  -f ../.base_layer/pangeo-notebook-environment.yml  -p linux-64  --no-mamba; \
 	conda-lock render -k explicit -p linux-64; \
-	../generate-packages-list.py conda-linux-64.lock > packages.txt; \
-	docker build -t cnes/base-notebook:master . --no-cache --progress=plain --platform linux/amd64; \
-	docker run -w $(TESTDIR) -v $(PWD):$(TESTDIR) cnes/base-notebook:master ./run_tests.sh base-notebook
+	../generate-packages-list.py conda-linux-64.lock > packages.txt
 
-.PHONY: geodes-notebook
-geodes-notebook : base-image
-	cd geodes-notebook ; \
-	cp -r ../base-notebook/resources . ; \
-	conda-lock lock --mamba -f environment.yml -f ../base-notebook/environment.yml -f ../base-notebook/environment.yml -p linux-64; \
-	conda-lock render -k explicit -p linux-64; \
-	../generate-packages-list.py conda-linux-64.lock > packages.txt; \
-	../merge-apt.sh ../base-notebook/apt.txt apt.txt; \
-	docker build -t cnes/geodes-notebook:master . --progress=plain --platform linux/amd64; \
-	docker run -w $(TESTDIR) -v $(PWD):$(TESTDIR) cnes/geodes-notebook:master ./run_tests.sh geodes-notebook
+apt:
+	cd vregeodes ; \
+	../merge-apt.sh ../.base_layer/base-notebook-apt.txt apt.txt ../.base_layer/pangeo-notebook-apt.txt  apt.txt
 
-.PHONY: pytorch-notebook
-pytorch-notebook : base-image
-	cd pytorch-notebook ; \
-	cp -r ../geodes-notebook/resources ../base-notebook/resources . ; \
-	conda-lock lock --mamba -f environment.yml -f ../geodes-notebook/environment.yml -f ../base-notebook/environment.yml -p linux-64; \
-	conda-lock render -k explicit -p linux-64; \
-	../generate-packages-list.py conda-linux-64.lock > packages.txt; \
-	../merge-apt.sh ../geodes-notebook/apt.txt ../base-notebook/apt.txt apt.txt; \
-	docker build -t cnes/pytorch-notebook:master . ; \
-	docker run -w $(TESTDIR) -v $(PWD):$(TESTDIR) cnes/pytorch-notebook:master ./run_tests.sh pytorch-notebook
+docker:
+	cd vregeodes ; \
+	docker build -t cnes/vregeodes:master . --progress=plain --platform linux/amd64; \
+	docker run -w $(TESTDIR) -v $(PWD):$(TESTDIR) cnes/vregeodes:master ./run_tests.sh vregeodes
+
+
+update:
+	python update_base_layer.py

@@ -20,8 +20,8 @@ def test_default_conda_environment():
     assert sys.prefix == '/srv/conda/envs/notebook'
 
 packages = [
-    # included in geodes-notebook metapackage
-    # https://github.com/conda-forge/geodes-notebook-feedstock/blob/master/recipe/meta.yaml
+    # included in pangeo-notebook metapackage
+    # https://github.com/conda-forge/pangeo-notebook-feedstock/blob/master/recipe/meta.yaml
     'dask', 'distributed', 'dask_gateway', 'dask_labextension', #dask_kubernetes (now using dask-gateway)
     # jupyterhub and related utilities
     'jupyterhub', 'jupyterlab', 'nbgitpuller'

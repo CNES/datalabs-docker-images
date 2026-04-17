@@ -6,6 +6,7 @@ dask-worker-space
 .DS_Store
 .keras
 .conda
+.base_layer/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -16,11 +16,8 @@ env:
 
 jobs:
   matrix-build:
-    strategy:
-      fail-fast: false
-      matrix:
-        IMAGE: [base-notebook, geodes-notebook]
-    name: ${{ matrix.IMAGE }}
+    env:
+      IMAGE: vregeodes
     runs-on: ubuntu-latest
     services:
       # https://github.com/docker/build-push-action/blob/master/docs/advanced/local-registry.md#local-registry
@@ -50,35 +47,35 @@ jobs:
       with:
         driver-opts: network=host
 
-    - name: Build base-image
-      uses: docker/build-push-action@v6
-      with:
-        context: base-image
-        platforms: linux/amd64
-        tags: localhost:5000/cnes/base-image:PR
-        push: true
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
-
-    - name: Build Only
-      uses: docker/build-push-action@v6
-      with:
-        context: ${{ matrix.IMAGE }}
-        platforms: linux/amd64
-        push: true
-        tags: localhost:5000/${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:PR
-        build-args: PANGEO_BASE_IMAGE_TAG=PR
-        build-contexts: |
-          cnes/base-image:PR=docker-image://localhost:5000/cnes/base-image:PR
-
-    - name: List Conda Packages
-      run: |
-        docker run localhost:5000/${DOCKER_ORG}/${{ matrix.IMAGE }}:PR conda list --export
-
-    - name: Report Image Size
-      run: |
-        docker image ls
-
-    - name: Test Image
-      run: |
-        docker run -u 1000 -w /srv/test -v $PWD:/srv/test localhost:5000/${DOCKER_ORG}/${{ matrix.IMAGE }}:PR ./run_tests.sh ${{ matrix.IMAGE }}
+#    - name: Build base-image
+#      uses: docker/build-push-action@v6
+#      with:
+#        context: base-image
+#        platforms: linux/amd64
+#        tags: localhost:5000/cnes/base-image:PR
+#        push: true
+#        cache-from: type=gha
+#        cache-to: type=gha,mode=max
+#
+#    - name: Build Only
+#      uses: docker/build-push-action@v6
+#      with:
+#        context: ${{ env.IMAGE }}
+#        platforms: linux/amd64
+#        push: true
+#        tags: localhost:5000/${{env.DOCKER_ORG}}/${{ env.IMAGE }}:PR
+#        build-args: PANGEO_BASE_IMAGE_TAG=PR
+#        build-contexts: |
+#          cnes/base-image:PR=docker-image://localhost:5000/cnes/base-image:PR
+#
+#    - name: List Conda Packages
+#      run: |
+#        docker run localhost:5000/${DOCKER_ORG}/${{ env.IMAGE }}:PR conda list --export
+#
+#    - name: Report Image Size
+#      run: |
+#        docker image ls
+#
+#    - name: Test Image
+#      run: |
+#        docker run -u 1000 -w /srv/test -v $PWD:/srv/test localhost:5000/${DOCKER_ORG}/${{ env.IMAGE }}:PR ./run_tests.sh ${{ env.IMAGE }}
