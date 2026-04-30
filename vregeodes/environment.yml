@@ -1,0 +1,13 @@
+name: notebook
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - eodag
+  - eoreader
+  - eosets
+  - geocube
+  - jupytergis
+  - openeo
+  - qgis
+  - xdem
