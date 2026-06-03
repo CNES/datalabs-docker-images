@@ -80,7 +80,7 @@ jobs:
           - IMAGE: ml-notebook
             platforms: linux/amd64
           - IMAGE: pytorch-notebook
-            platforms: linux/amd64
+            platforms: linux/amd64,linux/arm64
     name: ${{ matrix.IMAGE }}
     runs-on: ubuntu-latest
     steps:
