@@ -2,14 +2,16 @@
 # by conda-lock. Only put things here that are not already in pangeo-notebook
 name: pangeo
 channels:
- - conda-forge
- - nodefaults
+  - conda-forge
+  - nodefaults
 dependencies:
  - cuda-version>=12.0
  - jupyterlab-nvdashboard
  - gpytorch
- - pytorch>=2.1.0=cuda120*
+ - pytorch
  - tensorboard
- - tensorflow
- - torchvision>=0.16.1=cuda120*
+ - torchvision>=0.26.0
  - torchgeo
+ - python>=3.12,<3.13
+ - pip:
+    - tensorflow<2.21

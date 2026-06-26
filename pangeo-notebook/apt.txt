@@ -7,6 +7,7 @@ groff
 htop
 jq
 less
+nano
 ncdu
 ranger
 rclone

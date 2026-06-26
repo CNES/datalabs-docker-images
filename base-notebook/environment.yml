@@ -3,8 +3,8 @@ channels:
   - conda-forge
   - nodefaults
 dependencies:
-  - python=3.12
-  - pangeo-notebook=2025.05.30
+  - python=3.13
+  - pangeo-notebook=2026.06.03
   - pip
   - pip:
     - jupyter-launcher-shortcuts

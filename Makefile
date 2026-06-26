@@ -28,11 +28,12 @@ pangeo-notebook : base-image
 	docker build -t cnes/pangeo-notebook:master . --progress=plain --platform linux/amd64; \
 	docker run -w $(TESTDIR) -v $(PWD):$(TESTDIR) cnes/pangeo-notebook:master ./run_tests.sh pangeo-notebook
 
+
 .PHONY: pytorch-notebook
 pytorch-notebook : base-image
 	cd pytorch-notebook ; \
 	cp -r ../pangeo-notebook/resources ../base-notebook/resources . ; \
-	conda-lock lock -f environment.yml -f ../pangeo-notebook/environment.yml -f ../base-notebook/environment.yml -p linux-64; \
+	conda-lock lock  -f ../pangeo-notebook/environment.yml -f ../base-notebook/environment.yml -f environment.yml -p linux-64; \
 	conda-lock render -k explicit -p linux-64; \
 	../generate-packages-list.py conda-linux-64.lock > packages.txt; \
 	../merge-apt.sh ../pangeo-notebook/apt.txt ../base-notebook/apt.txt apt.txt; \
