@@ -4,8 +4,7 @@ channels:
  - nodefaults
 dependencies:
  - adlfs
- # https://github.com/euroargodev/argopy/issues/390
- - argopy<0.1.16
+ - argopy<1.4.0  # wait for xarray >2025.9.0 compat
  - awscli
  - black
  - boto3
@@ -31,7 +30,8 @@ dependencies:
  - flox
  - fsspec
  - gcm_filters
- - gcsfs
+ - gcsfs>=2025
+ - gdal
  - gh
  - gh-scoped-creds
  - geocube
@@ -39,11 +39,13 @@ dependencies:
  - geopy
  - geoviews-core
  - git-lfs
+ - google-cloud-sdk
  - gsw
  - h5netcdf
  - h5py
  - holoviews
  - hvplot
+ - icechunk>=2
  - intake
  - intake-esm
  - intake-geopandas
@@ -61,7 +63,10 @@ dependencies:
  - jupyterlab-myst
  - jupyter-panel-proxy
  - jupyter-resource-usage
+ - jupyter-sshd-proxy
  - kerchunk
+ - libgdal-arrow-parquet
+ - libgdal-netcdf
  - line_profiler
  - lonboard
  - lxml
@@ -75,19 +80,22 @@ dependencies:
  - netcdf4
  - numbagg
  - numcodecs
- - numpy
+ - numpy>=2.0.0
  - numpy_groupies
- - odc-stac
- - pandas
+ - obstore
+ - odc-stac>=0.4.0
+ - openssh
+ - pandas<3  # wait for bqplot support
  - panel
- - parcels
+ # wait for zarr v3 compat - https://github.com/OceanParcels/Parcels/issues/1819
+ #- parcels
  - param
  - planetary-computer
  - pop-tools
+ - pot
  - pyarrow
  - pycamhd
  - pydap
- - pyopenssl<23.2
  - pystac
  - pystac-client
  - python-blosc
@@ -98,6 +106,7 @@ dependencies:
  - python-xxhash
  - qgis
  - rasterio
+ - rclone
  - rechunker
  - rio-cogeo
  - rioxarray
@@ -113,10 +122,10 @@ dependencies:
  - stackstac
  - tiledb-py
  - timezonefinder
+ - virtualizarr
  - watermark
  - xarray
  - xarrayutils
- - xarray-datatree
  - xarray_leaflet
  - xarray-spatial
  - xbatcher
@@ -134,4 +143,4 @@ dependencies:
  - xskillscore
  - xxhash
  - xvec
- - zarr
+ - zarr>=3.1.6

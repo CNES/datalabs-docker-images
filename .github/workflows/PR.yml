@@ -1,21 +1,26 @@
 # Respond to every Pull Request with Pangeo Bot!
 name: PullRequest
+
 on:
   pull_request_target:
     types: [opened, reopened]
-    paths: '**/environment.yml'
+    paths: ["**/environment.yml"]
+
+permissions: {}
 
 jobs:
   DeployPangeoBot:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     if: github.repository == 'CNES/datalabs-docker-images'
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Add Condalock Comment
-        uses: peter-evans/create-or-update-comment@v4
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
         with:
            token: ${{ secrets.DATALABSBOT_TOKEN }}
            issue-number: ${{github.event.number}}
