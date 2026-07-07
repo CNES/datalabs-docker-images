@@ -1,6 +1,6 @@
 # Note: this environment will be merged with the pangeo-notebook/environment.yml
 # by conda-lock. Only put things here that are not already in pangeo-notebook
-name: pangeo
+name: pytorch-notebook
 channels:
   - conda-forge
   - nodefaults

@@ -75,9 +75,9 @@ jobs:
         build-contexts: |
           cnes/base-image:PR=docker-image://localhost:5000/cnes/base-image:PR
 
-    - name: List Conda Packages
-      run: |
-        docker run localhost:5000/${DOCKER_ORG}/${{ matrix.IMAGE }}:PR conda list --export
+    #- name: List Conda Packages
+    #  run: |
+    #    docker run localhost:5000/${DOCKER_ORG}/${{ matrix.IMAGE }}:PR conda list --export
 
     - name: Report Image Size
       run: |

@@ -19,11 +19,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Add Condalock Comment
+      - name: Add Pixilock Comment
         uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
         with:
            token: ${{ secrets.DATALABSBOT_TOKEN }}
            issue-number: ${{github.event.number}}
            body: |
-             /condalock
-             Automatically locking new conda environment, building, and testing images...
+             /pixilock
+             Automatically locking new pixi environment, building, and testing images...
