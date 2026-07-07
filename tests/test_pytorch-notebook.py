@@ -18,10 +18,13 @@ def test_import(package_name):
     importlib.import_module(package_name)
 
 
+def test_default_pixi_environment():
+    assert sys.prefix == '/srv/pixi/notebook/.pixi/envs/pytorch-notebook'
+    
 def test_start():
     print(os.environ)
-    if os.environ.get("PANGEO_ENV") is not None:
-        assert os.environ["PANGEO_ENV"] == "pytorch-notebook"
+    if os.environ.get('PANGEO_ENV') is not None:
+        assert os.environ['PANGEO_ENV'] ==  "pytorch-notebook"
 
 
 def test_torch_uses_mkl():
