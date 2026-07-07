@@ -64,8 +64,13 @@ jobs:
         cache-from: type=gha
         cache-to: type=gha,mode=max
         
-    - name: Add name-file
+    - name: Prepare pixi env
       run: |
+        pwd
+        ls -la
+        mkdir -p srv/pixi
+        cp -r ../environment srv/pixi/.
+        chmod 755 -R srv
         echo ${{ matrix.IMAGE }} > vre_name
 
     - name: Build Only
