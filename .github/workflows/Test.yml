@@ -69,9 +69,9 @@ jobs:
         pwd
         ls -la
         mkdir -p srv/pixi
-        cp -r ../environment srv/pixi/.
+        cp -r notebook ${{ matrix.IMAGE }}/srv/pixi/.
         chmod 755 -R srv
-        echo ${{ matrix.IMAGE }} > vre_name
+        echo ${{ matrix.IMAGE }} > ${{ matrix.IMAGE }}:vre_name
 
     - name: Build Only
       uses: docker/build-push-action@d08e5c354a6adb9ed34480a06d141179aa583294 # v7.0.0
