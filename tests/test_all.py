@@ -1,11 +1,9 @@
 import pytest
 import importlib
 import os.path
-import sys
 
 def test_config_paths():
-    assert os.path.exists('/etc/profile.d/init_conda.sh')
-    assert os.path.exists('/srv/conda/.condarc')
+    assert os.path.exists('/srv/pixi/pixi')
     assert os.path.exists('/srv/start')
 
 
@@ -16,8 +14,6 @@ def test_environment_variables():
     assert 'NB_PYTHON_PREFIX' in os.environ
 
 
-def test_default_conda_environment():
-    assert sys.prefix == '/srv/conda/envs/notebook'
 
 packages = [
     # included in pangeo-notebook metapackage
@@ -33,7 +29,7 @@ def test_import(package_name):
 
 def test_dask_config():
     import dask
-    assert '/srv/conda/etc' in dask.config.paths
+    assert '/srv/pixi/notebook/.pixi/envs/default/etc' in dask.config.paths
     assert dask.config.config['labextension']['factory']['class'] == 'LocalCluster'
 
 # Works locally but hanging on GitHub Actions, possibly due to:

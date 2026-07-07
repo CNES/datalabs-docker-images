@@ -63,6 +63,11 @@ jobs:
         push: true
         cache-from: type=gha
         cache-to: type=gha,mode=max
+        
+    - name: Prepare pixi env
+      run: |
+        cp -r notebook  ${{ matrix.IMAGE }}/.
+        echo ${{ matrix.IMAGE }} > ${{ matrix.IMAGE }}/vre_name
 
     - name: Build Only
       uses: docker/build-push-action@d08e5c354a6adb9ed34480a06d141179aa583294 # v7.0.0
@@ -77,7 +82,7 @@ jobs:
 
     - name: List Conda Packages
       run: |
-        docker run localhost:5000/${DOCKER_ORG}/${{ matrix.IMAGE }}:PR conda list --export
+        docker run localhost:5000/${DOCKER_ORG}/${{ matrix.IMAGE }}:PR pixi --manifest-path=/srv/pixi/notebook/.pixi/envs/${{ matrix.IMAGE }} list
 
     - name: Report Image Size
       run: |

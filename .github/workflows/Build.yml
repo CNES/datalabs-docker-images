@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - master
+      - pixi_usage
     paths-ignore:
       - 'LICENSE'
       - 'README.md'
       - 'Makefile'
-      - 'environment-condalock.yml'
       - 'update_lockfile.sh'
 
 env:
@@ -55,7 +55,7 @@ jobs:
         platforms: linux/amd64
         push: true
         tags: |
-          ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:master
+          ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:pixi_usage
           ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:${{env.DOCKER_TAG}}
 
   matrix-build:
@@ -100,6 +100,15 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+    - name: Add name-file
+      run: |
+        echo ${{ matrix.IMAGE }} > ${{ matrix.IMAGE }}/vre_name
+
+        
+    - name: Copy pixi environment
+      run: |
+        cp -r notebook ${{ matrix.IMAGE }}/.
+
 
     - name: Build and push
       uses: docker/build-push-action@d08e5c354a6adb9ed34480a06d141179aa583294 # v7.0.0
@@ -108,14 +117,14 @@ jobs:
         push: true
         platforms: linux/amd64
         tags: |
-          ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:master
+          ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:pixi_usage
           ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:${{env.DOCKER_TAG}}
 
-    - name: Inspect Image
-      run: |
-        docker run ${DOCKER_ORG}/${{ matrix.IMAGE }}:master conda list
-        docker images ls
+    #- name: Inspect Image
+    #  run: |
+    #    docker run ${DOCKER_ORG}/${{ matrix.IMAGE }}:master conda list
+    #    docker images ls
 
     - name: Test Image
       run: |
-        docker run -u 1000 -w /srv/test -v $PWD:/srv/test ${DOCKER_ORG}/${{ matrix.IMAGE }}:master ./run_tests.sh ${{ matrix.IMAGE }}
+        docker run -u 1000 -w /srv/test -v $PWD:/srv/test ${DOCKER_ORG}/${{ matrix.IMAGE }}:pixi_usage ./run_tests.sh ${{ matrix.IMAGE }}

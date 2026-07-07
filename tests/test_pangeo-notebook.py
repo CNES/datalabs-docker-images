@@ -19,6 +19,9 @@ def test_cartopy_downloads():
     import cartopy
     _ = cartopy.io.shapereader.natural_earth()  # should trigger download
 
+def test_default_pixi_environment():
+    assert sys.prefix == '/srv/pixi/notebook/.pixi/envs/pangeo-notebook'
+    
 def test_start():
     print(os.environ)
     if os.environ.get('PANGEO_ENV') is not None:
