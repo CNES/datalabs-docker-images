@@ -1,6 +1,6 @@
 # Runs pixi-lock against environment.yml for reproducible environments
 # Runs on any opened PR
-name: PixiLock
+name: CondaLock
 
 on:
   repository_dispatch:
