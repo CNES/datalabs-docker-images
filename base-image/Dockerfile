@@ -72,7 +72,8 @@ RUN echo "Installing Pixi..." \
     && URL="https://pixi.sh/install.sh" \
     && wget --quiet ${URL} -O pixi_install.sh \
     && /bin/bash pixi_install.sh \
-    && rm pixi_install.sh
+    && rm pixi_install.sh \
+    && chmod 755 ${PIXI_DIR} -R
 
 
 EXPOSE 8888
