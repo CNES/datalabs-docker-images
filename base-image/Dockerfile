@@ -158,10 +158,12 @@ ONBUILD RUN echo "Checking for 'conda-lock.yml' or 'environment.yml'..." \
         ; [ -d .binder ] && cd .binder \
         ; echo "install pixi env" \
         ; mv notebook ${PIXI_DIR}/{PIXI_ENV} \
+        ; ls -la ${PIXI_DIR} \
+        ; ls -la ${PIXI_DIR}/{PIXI_ENV} \
         ; cd ${PIXI_DIR}/${PIXI_ENV} \
         ; export CONDA_OVERRIDE_CUDA=12.0 \
         ; ${PIXI_DIR}/pixi install --environment `cat ~/vre_name` \
-        ; ln -s ${PIXI_DIR}/${PIXI_ENV}/.pixi/envs/`cat ../vre_name` ${PIXI_DIR}/${PIXI_ENV}/.pixi/envs/default \
+        ; ln -s ${PIXI_DIR}/${PIXI_ENV}/.pixi/envs/`cat ~/vre_name` ${PIXI_DIR}/${PIXI_ENV}/.pixi/envs/default \
         ; cd .. \
         #; chmod 755 ${PIXI_DIR}/${PIXI_ENV} -R \
         ; find ${PIXI_DIR}/${PIXI_ENV} -follow -type f -name '*.js.map' -delete \
