@@ -24,7 +24,7 @@ ENV PIXI_ENV=notebook \
 
 # All env vars that reference other env vars need to be in their own ENV block
 # Path to the python environment where the jupyter notebook packages are installed
-ENV NB_PYTHON_PREFIX=${PIXI_DIR}/${PIXI_ENV}/.pixi/envs/default \
+ENV NB_PYTHON_PREFIX=${PIXI_ENV}/.pixi/envs/default \
     # Home directory of our non-root user
     HOME=/home/${NB_USER}
 
@@ -37,7 +37,7 @@ ENV PATH=${NB_PYTHON_PREFIX}/bin:${PIXI_DIR}/bin:${PATH}
 # Ask dask to read config from ${CONDA_DIR}/etc rather than
 # the default of /etc, since the non-root jovyan user can write
 # to ${CONDA_DIR}/etc but not to /etc
-ENV DASK_ROOT_CONFIG=${PIXI_DIR}/${PIXI_ENV}/.pixi/envs/default/etc
+ENV DASK_ROOT_CONFIG=${PIXI_ENV}/.pixi/envs/default/etc
 
 RUN echo "Creating ${NB_USER} user..." \
     # Change user name from ubuntu to jovyan
@@ -159,12 +159,12 @@ ONBUILD RUN echo "Checking for 'conda-lock.yml' or 'environment.yml'..." \
         ; pwd \
         ; ls -la \
         ; ls -la / \
-        ; cd ${PIXI_DIR}/${PIXI_ENV} \
+        ; cd ${PIXI_ENV} \
         ; export CONDA_OVERRIDE_CUDA=12.0 \
-        ; ${PIXI_DIR}/pixi install --environment `cat /vre_name` \
-        ; ln -s ${PIXI_DIR}/${PIXI_ENV}/.pixi/envs/`cat /vre_name` ${PIXI_DIR}/${PIXI_ENV}/.pixi/envs/default \
+        ; ${PIXI_DIR}/pixi install --environment `cat vre_name` \
+        ; ln -s ${PIXI_ENV}/.pixi/envs/`cat /vre_name` ${PIXI_ENV}/.pixi/envs/default \
         ; cd .. \
-        ; chmod 755 ${PIXI_DIR}/${PIXI_ENV} -R \
+        #; chmod 755 ${PIXI_DIR}/${PIXI_ENV} -R \
         ; find ${PIXI_DIR} -follow -type f -name '*.js.map' -delete \
         ; if ls ${NB_PYTHON_PREFIX}/lib/python*/site-packages/bokeh/server/static > /dev/null 2>&1; then \
         find ${NB_PYTHON_PREFIX}/lib/python*/site-packages/bokeh/server/static -follow -type f -name '*.js' ! -name '*.min.js' -delete \
