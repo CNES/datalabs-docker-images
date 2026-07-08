@@ -157,9 +157,7 @@ ONBUILD RUN echo "Checking for 'conda-lock.yml' or 'environment.yml'..." \
         ; [ -d binder ] && cd binder \
         ; [ -d .binder ] && cd .binder \
         ; echo "install pixi env" \
-        ; mv notebook ${PIXI_DIR}/{PIXI_ENV} \
-        ; ls -la ${PIXI_DIR} \
-        ; ls -la ${PIXI_DIR}/{PIXI_ENV} \
+        ; mv notebook ${PIXI_DIR}/${PIXI_ENV} \
         ; cd ${PIXI_DIR}/${PIXI_ENV} \
         ; export CONDA_OVERRIDE_CUDA=12.0 \
         ; ${PIXI_DIR}/pixi install --environment `cat ~/vre_name` \
