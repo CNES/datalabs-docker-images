@@ -156,9 +156,6 @@ ONBUILD RUN echo "Checking for 'conda-lock.yml' or 'environment.yml'..." \
         ; [ -d binder ] && cd binder \
         ; [ -d .binder ] && cd .binder \
         ; echo "install pixi env" \
-        ; pwd \
-        ; ls -la \
-        ; ls -la / \
         ; cd ${PIXI_ENV} \
         ; export CONDA_OVERRIDE_CUDA=12.0 \
         ; ${PIXI_DIR}/pixi install --environment `cat vre_name` \
@@ -168,7 +165,8 @@ ONBUILD RUN echo "Checking for 'conda-lock.yml' or 'environment.yml'..." \
         ; find ${PIXI_DIR} -follow -type f -name '*.js.map' -delete \
         ; if ls ${NB_PYTHON_PREFIX}/lib/python*/site-packages/bokeh/server/static > /dev/null 2>&1; then \
         find ${NB_PYTHON_PREFIX}/lib/python*/site-packages/bokeh/server/static -follow -type f -name '*.js' ! -name '*.min.js' -delete \
-        ; fi
+        ; fi \
+        ; ls ~/notebook/.pixi/envs/default/
 
 
 # If a requirements.txt file exists, use pip to install packages

@@ -68,9 +68,7 @@ jobs:
       run: |
         pwd
         ls -la
-        mkdir -p ${{ matrix.IMAGE }}/srv/pixi
         cp -r notebook  ${{ matrix.IMAGE }}/.
-        chmod 755 -R ${{ matrix.IMAGE }}/srv
         echo ${{ matrix.IMAGE }} > ${{ matrix.IMAGE }}/vre_name
 
     - name: Build Only
