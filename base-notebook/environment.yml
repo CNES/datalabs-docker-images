@@ -1,4 +1,4 @@
-name: notebook
+name: base-notebook
 channels:
   - conda-forge
   - nodefaults

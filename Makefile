@@ -3,6 +3,20 @@
 all: base-image base-notebook pangeo-notebook pytorch-notebook
 TESTDIR=/srv/test
 
+
+pixi:
+	rm -rf notebook ; \
+	pixi init notebook ; \
+	cd notebook ; \
+	pixi import ../base-notebook/environment.yml --format conda-env; \
+	pixi import ../pangeo-notebook/environment.yml --format conda-env; \
+	pixi import ../pytorch-notebook/environment.yml --format conda-env; \
+	pixi workspace environment add base-notebook --feature base-notebook --force; \
+	pixi workspace environment add pangeo-notebook --feature base-notebook --feature pangeo-notebook --force; \
+	pixi workspace environment add pytorch-notebook --feature base-notebook --feature pangeo-notebook --feature pytorch-notebook --force; \
+	pixi lock
+
+
 .PHONY: base-image
 base-image :
 	cd base-image ; \
@@ -11,9 +25,7 @@ base-image :
 .PHONY: base-notebook
 base-notebook : base-image
 	cd base-notebook ; \
-	conda-lock lock -f environment.yml -p linux-64; \
-	conda-lock render -k explicit -p linux-64; \
-	../generate-packages-list.py conda-linux-64.lock > packages.txt; \
+	../generate-packages-list.py ../notebook/pixi.lock --environment='base-notebook' > packages.txt; \
 	docker build -t cnes/base-notebook:master . --no-cache --progress=plain --platform linux/amd64; \
 	docker run -w $(TESTDIR) -v $(PWD):$(TESTDIR) cnes/base-notebook:master ./run_tests.sh base-notebook
 
@@ -21,9 +33,7 @@ base-notebook : base-image
 pangeo-notebook : base-image
 	cd pangeo-notebook ; \
 	cp -r ../base-notebook/resources . ; \
-	conda-lock lock -f environment.yml -f ../base-notebook/environment.yml -f ../base-notebook/environment.yml -p linux-64; \
-	conda-lock render -k explicit -p linux-64; \
-	../generate-packages-list.py conda-linux-64.lock > packages.txt; \
+	../generate-packages-list.py ../notebook/pixi.lock --environment='pangeo-notebook' > packages.txt; \
 	../merge-apt.sh ../base-notebook/apt.txt apt.txt; \
 	docker build -t cnes/pangeo-notebook:master . --progress=plain --platform linux/amd64; \
 	docker run -w $(TESTDIR) -v $(PWD):$(TESTDIR) cnes/pangeo-notebook:master ./run_tests.sh pangeo-notebook
@@ -33,9 +43,7 @@ pangeo-notebook : base-image
 pytorch-notebook : base-image
 	cd pytorch-notebook ; \
 	cp -r ../pangeo-notebook/resources ../base-notebook/resources . ; \
-	conda-lock lock  -f ../pangeo-notebook/environment.yml -f ../base-notebook/environment.yml -f environment.yml -p linux-64; \
-	conda-lock render -k explicit -p linux-64; \
-	../generate-packages-list.py conda-linux-64.lock > packages.txt; \
+	../generate-packages-list.py ../notebook/pixi.lock --environment='pytorch-notebook' > packages.txt; \
 	../merge-apt.sh ../pangeo-notebook/apt.txt ../base-notebook/apt.txt apt.txt; \
 	docker build -t cnes/pytorch-notebook:master . ; \
 	docker run -w $(TESTDIR) -v $(PWD):$(TESTDIR) cnes/pytorch-notebook:master ./run_tests.sh pytorch-notebook

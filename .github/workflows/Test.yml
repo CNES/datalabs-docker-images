@@ -63,6 +63,13 @@ jobs:
         push: true
         cache-from: type=gha
         cache-to: type=gha,mode=max
+        
+    - name: Prepare pixi env
+      run: |
+        pwd
+        ls -la
+        cp -r notebook  ${{ matrix.IMAGE }}/.
+        echo ${{ matrix.IMAGE }} > ${{ matrix.IMAGE }}/vre_name
 
     - name: Build Only
       uses: docker/build-push-action@d08e5c354a6adb9ed34480a06d141179aa583294 # v7.0.0
@@ -75,9 +82,9 @@ jobs:
         build-contexts: |
           cnes/base-image:PR=docker-image://localhost:5000/cnes/base-image:PR
 
-    - name: List Conda Packages
-      run: |
-        docker run localhost:5000/${DOCKER_ORG}/${{ matrix.IMAGE }}:PR conda list --export
+    #- name: List Conda Packages
+    #  run: |
+    #    docker run localhost:5000/${DOCKER_ORG}/${{ matrix.IMAGE }}:PR conda list --export
 
     - name: Report Image Size
       run: |

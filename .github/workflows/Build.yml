@@ -8,7 +8,6 @@ on:
       - 'LICENSE'
       - 'README.md'
       - 'Makefile'
-      - 'environment-condalock.yml'
       - 'update_lockfile.sh'
 
 env:
@@ -100,6 +99,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+    - name: Add name-file
+      run: |
+        echo ${{ matrix.IMAGE }} > vre_name
 
     - name: Build and push
       uses: docker/build-push-action@d08e5c354a6adb9ed34480a06d141179aa583294 # v7.0.0
@@ -111,10 +113,10 @@ jobs:
           ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:master
           ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:${{env.DOCKER_TAG}}
 
-    - name: Inspect Image
-      run: |
-        docker run ${DOCKER_ORG}/${{ matrix.IMAGE }}:master conda list
-        docker images ls
+    #- name: Inspect Image
+    #  run: |
+    #    docker run ${DOCKER_ORG}/${{ matrix.IMAGE }}:master conda list
+    #    docker images ls
 
     - name: Test Image
       run: |
