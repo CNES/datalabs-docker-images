@@ -156,17 +156,18 @@ ONBUILD RUN echo "Checking for 'conda-lock.yml' or 'environment.yml'..." \
         ; [ -d binder ] && cd binder \
         ; [ -d .binder ] && cd .binder \
         ; echo "install pixi env" \
-        ; cd ${PIXI_ENV} \
+        ; mv notebook ${PIXI_DIR}/{PIXI_ENV}
+        ; cd ${PIXI_DIR}/${PIXI_ENV} \
         ; export CONDA_OVERRIDE_CUDA=12.0 \
-        ; ${PIXI_DIR}/pixi install --environment `cat ../vre_name` \
-        ; ln -s ~/${PIXI_ENV}/.pixi/envs/`cat ../vre_name` ~/${PIXI_ENV}/.pixi/envs/default \
+        ; ${PIXI_DIR}/pixi install --environment `cat ~/vre_name` \
+        ; ln -s ${PIXI_DIR}/${PIXI_ENV}/.pixi/envs/`cat ../vre_name` ${PIXI_DIR}/${PIXI_ENV}/.pixi/envs/default \
         ; cd .. \
         #; chmod 755 ${PIXI_DIR}/${PIXI_ENV} -R \
-        ; find ~/${PIXI_ENV} -follow -type f -name '*.js.map' -delete \
+        ; find ${PIXI_DIR}/${PIXI_ENV} -follow -type f -name '*.js.map' -delete \
         ; if ls ${NB_PYTHON_PREFIX}/lib/python*/site-packages/bokeh/server/static > /dev/null 2>&1; then \
         find ${NB_PYTHON_PREFIX}/lib/python*/site-packages/bokeh/server/static -follow -type f -name '*.js' ! -name '*.min.js' -delete \
         ; fi \
-        ; ls ~/notebook/.pixi/envs/default/
+        ; ls ${PIXI_DIR}/${PIXI_ENV}/.pixi/envs/default/
 
 
 # If a requirements.txt file exists, use pip to install packages
