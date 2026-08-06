@@ -55,7 +55,7 @@ jobs:
         platforms: linux/amd64
         push: true
         tags: |
-          ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:master
+          ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:pixi_usage
           ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:${{env.DOCKER_TAG}}
 
   matrix-build:
@@ -111,7 +111,7 @@ jobs:
         push: true
         platforms: linux/amd64
         tags: |
-          ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:master
+          ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:pixi_usage
           ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:${{env.DOCKER_TAG}}
 
     #- name: Inspect Image
@@ -121,4 +121,4 @@ jobs:
 
     - name: Test Image
       run: |
-        docker run -u 1000 -w /srv/test -v $PWD:/srv/test ${DOCKER_ORG}/${{ matrix.IMAGE }}:master ./run_tests.sh ${{ matrix.IMAGE }}
+        docker run -u 1000 -w /srv/test -v $PWD:/srv/test ${DOCKER_ORG}/${{ matrix.IMAGE }}:pixi_usage ./run_tests.sh ${{ matrix.IMAGE }}
