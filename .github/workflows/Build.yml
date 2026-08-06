@@ -3,6 +3,7 @@ name: Build
 on:
   push:
     branches:
+      - branche_temporaire
       - master
     paths-ignore:
       - 'LICENSE'
