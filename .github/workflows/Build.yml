@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - pixi_usage
     paths-ignore:
       - 'LICENSE'
       - 'README.md'
