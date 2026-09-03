@@ -23,6 +23,7 @@ mkdir -p /opt/vre/
 #apt-get update --quiet
 #DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recommends firefox-esr 
 
+echo "------------ DEBUT Firefox -----------------"
 #FIRFOX-ESR
 install -d -m 0755 /etc/apt/keyrings
 #Import the Mozilla APT repository signing key:
@@ -52,10 +53,12 @@ EOF
 apt-get update --quiet
 apt-get install firefox-esr --yes --quiet 
 
-./usr/local/bin/layer-cleanup.sh
+echo "------------ FIN Firefox -----------------"
+/usr/local/bin/layer-cleanup.sh
 
+echo "------------ DEBUT others -----------------"
 apt-get update --quiet
-DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recommends \
+apt-get install --yes --quiet --no-install-recommends \
     dconf-cli \
     dbus-x11 \
     evince \
@@ -69,6 +72,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recomm
     xorg \
     xubuntu-icon-theme
 
+echo "------------ FIN others -----------------"
 
 curl -sSfL https://github.com/novnc/noVNC/archive/v1.4.0.tar.gz | tar -zxf - -C /opt
 mv /opt/noVNC-1.4.0 /opt/noVNC
