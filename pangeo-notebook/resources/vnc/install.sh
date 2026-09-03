@@ -50,7 +50,7 @@ Pin-Priority: -1
 EOF
 #Update your package list, and install firefox (or one of firefox-esr, -beta, -nightly, -devedition):
 apt-get update --quiet
-apt-get install firefox --yes --quiet 
+apt-get install firefox-esr --yes --quiet 
 
 ./usr/local/bin/layer-cleanup.sh
 
