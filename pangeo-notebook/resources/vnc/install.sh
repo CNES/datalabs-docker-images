@@ -20,13 +20,17 @@ mkdir -p /opt/vre/
 
 
 add-apt-repository ppa:mozillateam/ppa --yes
-apt-get update --quiet
+apt-get update --quiet --fix-missing
+DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recommends firefox-esr 
+
+./usr/local/bin/layer-cleanup.sh
+
+apt-get update --quiet --fix-missing
 DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recommends \
     dconf-cli \
     dbus-x11 \
     evince \
     file-roller \
-    firefox-esr \
     geeqie \
     thunar-archive-plugin \
     xfce4 \
