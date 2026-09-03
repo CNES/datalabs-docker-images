@@ -19,13 +19,42 @@ cp resources/vnc/* /opt
 mkdir -p /opt/vre/
 
 
-add-apt-repository ppa:mozillateam/ppa --yes
-apt-get update --quiet --fix-missing
-DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recommends firefox-esr 
+#add-apt-repository ppa:mozillateam/ppa --yes
+#apt-get update --quiet
+#DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recommends firefox-esr 
+
+#FIRFOX-ESR
+install -d -m 0755 /etc/apt/keyrings
+#Import the Mozilla APT repository signing key:
+wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
+#Next, add the Mozilla APT repository to your sources.list:
+#For Debian Trixie/Ubuntu Resolute and Newer 
+tee /etc/apt/sources.list.d/mozilla.sources > /dev/null << EOF
+Types: deb
+URIs: https://packages.mozilla.org/apt
+Suites: mozilla
+Components: main
+Signed-By: /etc/apt/keyrings/packages.mozilla.org.asc
+EOF
+#Configure APT to prioritize packages from the Mozilla repository:
+tee /etc/apt/preferences.d/mozilla > /dev/null << EOF
+Package: *
+Pin: origin packages.mozilla.org
+Pin-Priority: 1000
+EOF
+#For Ubuntu users: If you want to replace the snap version of firefox to the deb version, you need to pin the firefox snap version from the APT package manager before removing the snap package with sudo snap remove firefox command to prevent unwanted upgrades to the snap version of firefox. 
+tee /etc/apt/preferences.d/mozilla > /dev/null << EOF
+Package: firefox
+Pin: release o=Ubuntu
+Pin-Priority: -1
+EOF
+#Update your package list, and install firefox (or one of firefox-esr, -beta, -nightly, -devedition):
+apt-get update --quiet
+apt-get install firefox --yes --quiet 
 
 ./usr/local/bin/layer-cleanup.sh
 
-apt-get update --quiet --fix-missing
+apt-get update --quiet
 DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recommends \
     dconf-cli \
     dbus-x11 \
@@ -39,6 +68,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recomm
     xfce4-settings \
     xorg \
     xubuntu-icon-theme
+
 
 curl -sSfL https://github.com/novnc/noVNC/archive/v1.4.0.tar.gz | tar -zxf - -C /opt
 mv /opt/noVNC-1.4.0 /opt/noVNC
