@@ -37,7 +37,11 @@ DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends \
     xfce4-session \
     xfce4-settings \
     xorg \
-    xubuntu-icon-theme
+    xubuntu-icon-theme \
+    libpci-dev \
+    libcanberra-gtk3-module \
+    libgles2-mesa-dev \
+    dbus-x11 \
 
 echo "------------ FIN others -----------------"
 
@@ -51,12 +55,8 @@ wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt
     echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null && \
     echo 'Package: *\nPin: origin packages.mozilla.org\nPin-Priority: 1000' | tee /etc/apt/preferences.d/mozilla && \
     apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        dbus-x11 \
         firefox-esr && \
     apt-get clean
-#        libpci-dev \
-#        libcanberra-gtk3-module \
-#        libgles2-mesa-dev \
 rm -rf /etc/apt/keyrings/packages.mozilla.org.asc
 rm -rf /etc/apt/sources.list.d/mozilla.list
 rm -rf /etc/apt/preferences.d/mozilla

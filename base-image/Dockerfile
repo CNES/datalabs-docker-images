@@ -60,7 +60,8 @@ RUN echo "Installing Apt-get packages..." \
     && apt-get update --fix-missing > /dev/null \
     && apt-get install -y apt-utils wget zip tzdata > /dev/null \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && echo -e 'Acquire::http::timeout "240"; \nAcquire::https::timeout "240";' | tee /etc/apt/apt.conf.d/99timeouts
 
 # Add TZ configuration - https://github.com/PrefectHQ/prefect/issues/3061
 ENV TZ=UTC
