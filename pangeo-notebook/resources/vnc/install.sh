@@ -23,6 +23,25 @@ mkdir -p /opt/vre/
 #apt-get update --quiet
 #DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recommends firefox-esr 
 
+echo "------------ DEBUT others -----------------"
+apt-get update --quiet && \
+DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recommends \
+    dconf-cli \
+    dbus-x11 \
+    evince \
+    file-roller \
+    geeqie \
+    thunar-archive-plugin \
+    xfce4 \
+    xfce4-panel \
+    xfce4-session \
+    xfce4-settings \
+    xorg \
+    xubuntu-icon-theme
+
+echo "------------ FIN others -----------------"
+
+/usr/local/bin/layer-cleanup.sh
 echo "------------ DEBUT Firefox -----------------"
 # Install Firefox and its dependencies
 # https://support.mozilla.org/en-US/kb/install-firefox-linux
@@ -45,23 +64,6 @@ echo "------------ FIN Firefox -----------------"
 
 /usr/local/bin/layer-cleanup.sh
 
-echo "------------ DEBUT others -----------------"
-apt-get update --quiet && \
-DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recommends \
-    dconf-cli \
-    dbus-x11 \
-    evince \
-    file-roller \
-    geeqie \
-    thunar-archive-plugin \
-    xfce4 \
-    xfce4-panel \
-    xfce4-session \
-    xfce4-settings \
-    xorg \
-    xubuntu-icon-theme
-
-echo "------------ FIN others -----------------"
 
 curl -sSfL https://github.com/novnc/noVNC/archive/v1.4.0.tar.gz | tar -zxf - -C /opt
 mv /opt/noVNC-1.4.0 /opt/noVNC
