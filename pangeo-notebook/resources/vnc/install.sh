@@ -38,12 +38,15 @@ wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt
         dbus-x11 \
         firefox-esr && \
     apt-get clean
+rm -rf /etc/apt/keyrings/packages.mozilla.org.asc
+rm -rf /etc/apt/sources.list.d/mozilla.list
+rm -rf /etc/apt/preferences.d/mozilla
 echo "------------ FIN Firefox -----------------"
 
 /usr/local/bin/layer-cleanup.sh
 
 echo "------------ DEBUT others -----------------"
-apt-get update --quiet
+apt-get update --quiet && \
 apt-get install --yes --quiet --no-install-recommends \
     dconf-cli \
     dbus-x11 \
