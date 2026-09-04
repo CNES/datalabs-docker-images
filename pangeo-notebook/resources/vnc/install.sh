@@ -24,36 +24,23 @@ mkdir -p /opt/vre/
 #DEBIAN_FRONTEND=noninteractive apt-get install --yes --quiet --no-install-recommends firefox-esr 
 
 echo "------------ DEBUT Firefox -----------------"
-#FIRFOX-ESR
-install -d -m 0755 /etc/apt/keyrings
-#Import the Mozilla APT repository signing key:
-wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
-#Next, add the Mozilla APT repository to your sources.list:
-#For Debian Trixie/Ubuntu Resolute and Newer 
-tee /etc/apt/sources.list.d/mozilla.sources > /dev/null << EOF
-Types: deb
-URIs: https://packages.mozilla.org/apt
-Suites: mozilla
-Components: main
-Signed-By: /etc/apt/keyrings/packages.mozilla.org.asc
-EOF
-#Configure APT to prioritize packages from the Mozilla repository:
-tee /etc/apt/preferences.d/mozilla > /dev/null << EOF
-Package: *
-Pin: origin packages.mozilla.org
-Pin-Priority: 1000
-EOF
-#For Ubuntu users: If you want to replace the snap version of firefox to the deb version, you need to pin the firefox snap version from the APT package manager before removing the snap package with sudo snap remove firefox command to prevent unwanted upgrades to the snap version of firefox. 
-tee /etc/apt/preferences.d/mozilla > /dev/null << EOF
-Package: firefox
-Pin: release o=Ubuntu
-Pin-Priority: -1
-EOF
-#Update your package list, and install firefox (or one of firefox-esr, -beta, -nightly, -devedition):
-apt-get update --quiet
-apt-get install firefox-esr --yes --quiet 
-
+# Install Firefox and its dependencies
+# https://support.mozilla.org/en-US/kb/install-firefox-linux
+# https://www.mozilla.org/en-US/firefox/117.0/system-requirements/
+RUN install -d -m 0755 /etc/apt/keyrings && \
+    wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null && \
+    gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}' && \
+    echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null && \
+    echo 'Package: *\nPin: origin packages.mozilla.org\nPin-Priority: 1000' | tee /etc/apt/preferences.d/mozilla && \
+    apt-get update && apt-get install -y --no-install-recommends \
+        libpci-dev \
+        libcanberra-gtk3-module \
+        libgles2-mesa-dev \
+        dbus-x11 \
+        firefox-esr && \
+    apt-get clean
 echo "------------ FIN Firefox -----------------"
+
 /usr/local/bin/layer-cleanup.sh
 
 echo "------------ DEBUT others -----------------"
