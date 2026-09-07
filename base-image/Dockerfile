@@ -199,6 +199,7 @@ ONBUILD RUN  echo "Copy 'layer-cleanup'..." \
 ONBUILD RUN echo "Executing install scripts..." \
         ; [ -d binder ] && cd binder \
         ; [ -d .binder ] && cd .binder \
+        ; eval "$(mamba shell hook --shell bash)" \
         ; mamba activate ${NB_PYTHON_PREFIX} \
         ; for script in $(find "resources" -type f -name "install.sh"); do \
                 chmod +x "$script"; \
