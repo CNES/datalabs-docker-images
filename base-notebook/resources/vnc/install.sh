@@ -65,3 +65,5 @@ sed -i 's/^#*/#/' /etc/xdg/user-dirs.defaults
 sed -i 's/enabled=True/enabled=False/' /etc/xdg/user-dirs.conf
 
 chmod 664 /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/*
+
+mamba deactivate
