@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - fix_apt_get
     paths-ignore:
       - 'LICENSE'
       - 'README.md'
@@ -56,7 +55,7 @@ jobs:
         platforms: linux/amd64
         push: true
         tags: |
-          ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:fix_apt_get
+          ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:master
           ${{env.DOCKER_ORG}}/${{ env.IMAGE }}:${{env.DOCKER_TAG}}
 
   matrix-build:
@@ -109,14 +108,14 @@ jobs:
         push: true
         platforms: linux/amd64
         tags: |
-          ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:fix_apt_get
+          ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:master
           ${{env.DOCKER_ORG}}/${{ matrix.IMAGE }}:${{env.DOCKER_TAG}}
 
     - name: Inspect Image
       run: |
-        docker run ${DOCKER_ORG}/${{ matrix.IMAGE }}:fix_apt_get conda list
+        docker run ${DOCKER_ORG}/${{ matrix.IMAGE }}:master conda list
         docker images ls
 
     - name: Test Image
       run: |
-        docker run -u 1000 -w /srv/test -v $PWD:/srv/test ${DOCKER_ORG}/${{ matrix.IMAGE }}:fix_apt_get ./run_tests.sh ${{ matrix.IMAGE }}
+        docker run -u 1000 -w /srv/test -v $PWD:/srv/test ${DOCKER_ORG}/${{ matrix.IMAGE }}:master ./run_tests.sh ${{ matrix.IMAGE }}
