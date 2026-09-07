@@ -7,7 +7,6 @@ apt-get autoclean --yes
 apt-get autoremove --yes
 
 rm -rf /var/lib/apt/lists/*
-rm -rf /etc/apt/sources.list.d/*
 rm -rf /usr/local/src/*
 
 rm -rf /var/cache/apt/*
